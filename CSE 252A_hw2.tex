@@ -162,7 +162,31 @@ The first thing we need to do is to build a corner detector. This should be done
 corners = CornerDetect(Image, nCorners, smoothSTD, windowSize)
 \end{lstlisting}
 where \texttt{smoothSTD} is the standard deviation of the smoothing kernel, and \texttt{windowSize} the size of the smoothing window. In the lecture the corner detector was implemented using a hard threshold. Do not do that but instead return the \texttt{nCorners} strongest corners after non-maximum suppression. This way you can control exactly how many corners are returned. Run your code on all four images (with \texttt{nCorners} = 20) and show outputs.\\
-Solution:
+Solution:\\
+To detect the corners, we follow the method in lecture 7.\\
+1. Filter image with a Gaussian.\\
+2. Compute the gradient in both x and y directions for every pixel.\\
+3. Move window over image, and for each window location: \\
+(1) Construct the matrix C over the window.\\
+\begin{center}
+$
+C(x, y) =
+\left(
+\begin{array}{clr}
+\sum{}I_x^2 & \sum{}I_xI_y\\
+\sum{}I_xI_y & \sum{}I_y^2
+\end{array}
+\right)
+$
+\end{center}
+(2) Find the eigenvalue for C using eig() in matlab.\\
+(3) Store the smaller eigenvalue for every pixel in a matrix.\\
+4. Perform non-maximum suppression by comparing the stored eigenvalue in every pixel with its neighbors(a window). If the eigenvalue is the maximum in the window, we take this pixel as a candidate of a corner.\\
+5. We sort all the candidates by their eigenvalues, and choose the largest nCorners pixels as our result.\\
+Result:\\
+
+
+
 
 
 \textbf{6.2 SSD Matching [2pt]}\\
