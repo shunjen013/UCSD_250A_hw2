@@ -1,0 +1,217 @@
+\documentclass{assignment}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{gensymb}
+
+\coursetitle{Computer Vision I}
+\courselabel{CSE 252A}
+\exercisesheet{Homework 2}{}
+\student{Wei-Yuan Wen, Yen-Ting Chen, Shun-Jen Lee}
+\university{University of California, San Diego}
+\semester{Fall 2016}
+\date{November 2, 2016}
+
+\begin{document}
+\begin{problemlist}
+
+
+
+
+\pbitem Epipolar Geometry Theory [6 pt]
+
+\textbf{Description:}
+
+Suppose a camera calibration gives a transformation $(R, T)$ such that a point in the world maps to the camera by $^{C}P = R^{W}P + T$.\\
+
+1. Given calibrations of two cameras (a stereo pair) to a common external coordinate system, represented by $R_1, T_1, R_2, T_2$, provide an expression that will map points expressed in the coordinate system of camera 1 to that of camera 2.\\
+2. What is the length of the baseline of the stereo pair.\\
+3. Give an expression for the Essential Matrix in terms of $R_1, T_1, R_2, T_2$\\
+
+\textbf{Solution:}
+
+\newpage
+\pbitem Epipolar Geometry [4 pt]
+
+\textbf{Description:}
+
+Consider two cameras whose image planes are the $z$ = 1 plane, and whose focal points are at (−12, 0, 0) and (12, 0, 0). We’ll call a point in the first camera $(x, y)$, and a point in the second camera $(u, v)$. Points in each camera are relative to the camera center. So, for example if $(x, y)$ = (0, 0), this is really the point (−12, 0, 1) in world coordinates, while if $(u, v)$ = (0, 0) this is the point (12, 0, 1).
+
+
+1. Suppose the points $(x, y)$ = (8, 7) is matched with disparity of 6 to the point $(u, v)$ = (2, 7). What is the 3D location of this point?\\
+
+2. Consider points that lie on the 3-D line $X + Z = 2,Y = 0$. Use the same stereo set up as before. Write an analytic expression giving the disparity of a point on this line after it projects onto the two images, as a function of its position in the right image. So your expression should only involve the variables $u$ and $d$ (for disparity). Your expression only needs to be valid for points on the line that are in front of the cameras, i.e. with $Z > 1$.\\
+
+\textbf{Solution:}
+
+
+\newpage
+\pbitem Reconstruction Accuracy [3pt]
+
+\textbf{Description:}
+
+Characterize the accuracy of the 2D stereo system below. Assume the only source of noise is the localization of corresponding points in the two images (in other words, the only source of error is the disparity). Discuss the dependence of the error in depth estimation $(\Delta Z')$ as a function of baseline width $(b)$, focal length $(f)$, and depth $(Z')$.\\
+Solution:\\
+As mentioned in lecture 8, we assume that the localization positions of corresponding points in the two images are $X_L$ and $X_R$. By using similar triangles, we have:\\
+\begin{center}
+$X' = \frac{bX_L}{(X_L-X_R)}, Z' =  \frac{bf}{(X_L-X_R)}$, where $(X_L-X_R)$ is the disparity.\\
+\end{center}
+To observe the error in depth estimation with respect to the noise of disparity, we differentiate Z' to the disparity. We get:\\
+\begin{center}
+$\frac{dZ'}{d(X_L-X_R)} = \frac{-bf}{(X_L-X_R)^2}$ $\to$ $\Delta Z' = \frac{-bf}{(X_L-X_R)^2} \Delta(X_L-X_R)$\\
+\end{center}
+By substituting Z' into the equation, the result becomes:\\
+\begin{center}
+$\Delta Z' = \frac{-Z'^2}{bf} \Delta(X_L-X_R)$\\
+\end{center}
+Hence, we can observe that $(\Delta Z')$ is in proportional to the square of estimated depth $(Z'^2)$ and inversely proportional to the product of baseline width $(b)$ and focal length $(f)$.
+
+
+
+
+\newpage
+\pbitem Filters as Templates [16pt]
+
+\textbf{Description:}
+
+In this problem we will play with convolution filters. Filters, when convolved with an image, will fire strongest on locations of an image that look like the filter. This allows us to use filters as object templates in order to identify specific objects within an image. In the case of this assignment, we will be finding cars within an image by convolving a car template onto that image. Although this is not a very good way to do object detection, this problem will show you some of the steps necessary to create a good object detector. The goal of this problem will be to teach some pre-processing steps to make vision algorithms be successful and some strengths and weaknesses of filters. Each problem will ask you to analyze and explain your results. If you do not provide an explanation of why or why not something happened, then you will not get full credit. Provide your code in the appendix.\\
+
+\textbf{4.1 Warmup [3pt]}\\
+First you will convolve a filter to a synthetic image. The filter or template is \texttt{filter.jpg} and the synthetic image is \texttt{toy.png}. These files are available on the course webpage. You may want to modify the filter image and original slightly. I suggest \texttt{filter\_img = filter img - mean(filter img(:))}. To convolve the filter image with the toy example, in Matlab you will want to use \texttt{conv2}. The output of the convolution will create an intensity image. Provide this image in the report. In the original image (not the image with its mean subtracted), draw a bounding box of the same size as the filter image around the top 3 intensity value locations in the convolved image. The outputs should look like Figure 1. Describe how well you think this will technique will work on more realistic images? Do you foresee any problems for this algorithm on more realistic images?\\
+
+\textbf{4.2 Detection Error [3pt]}\\
+We have now created an algorithm that produces a bounding box around a detected object. However we have no way to know if the bounding box is good or bad. In the example images shown above, the bounding boxes look reasonable, but not perfect. Given a ground truth bounding box $(g)$ and a predicted bounding box $(p)$, a commonly used measurement for bounding box quality is $\frac{p\cap q}{p\cup q}$. More intuitively, this is the number of overlapping pixels between the bounding boxes divided by the total number of unique pixels of the two bounding boxes combined. Assuming that all bounding boxes will be axis-aligned rectangles, implement this error function and try it on the toy example in the previous section. Choose 3 different ground truth bounding box sizes around one of the Mickey silhouettes. In general, if the overlap is 50\% or more, you may consider that the detection did a good job.\\
+
+\textbf{4.3 More Realistic Images [8pt]}\\
+Now that you have created an algorithm for matching templates and a function to determine the quality of the match, it is time to try some more realistic images. The file, \texttt{cartemplate.jpg}, will be the filter to convolve on each of the 5 other car images (\texttt{car1.jpg, car2.jpg, car3.jpg, car4.jpg, car5.jpg}). Each image will have an associated text files that contains 2 $x, y$ coordinates (one pair per line). These coordinates will be the ground truth bounding box for each image. For each car image, provide the following:\\
+\begin{itemize}
+    \item A heat map image.\\
+    \item A bounding box drawn on the original image.\\
+    \item The bounding box overlap percent.\\
+    \item A description of what pre-processing steps you needed to do to achieve this overlap.\\
+    \item An explanation of why you felt these steps made sense.\\
+\end{itemize}
+
+\textbf{4.4 Invariance [2pt]}\\
+In computer vision there is often a desire for features or algorithms to be invariant to X. One example briefly described in class was illumination invariance. The detection algorithm that was implemented for this problem may have seemed a bit brittle. Can you describe a few things that this algorithm was not invariant to? For example, this algorithm was not scale-invariant, meaning the size of the filter with respect to the size of the object being detected mattered. One filter size should not have worked on everything.
+
+\newpage
+\pbitem Canny Edge Detection [9pt]
+
+\textbf{Description:}
+
+In this problem, you have to write a function to do CANNY EDGE DETECTION. The following steps need to be implemented.
+\begin{itemize}
+    \item\textbf{Smoothing [1pt]:} First, we need to smooth the images to remove noise from being considered as edges. For this assignment, use a 5$\times$5 Gaussian kernel filter 1 with σ = 1.4 to smooth the images.\\
+    \begin{align}
+        K = \frac{1}{159}
+        \begin{bmatrix}
+        2&4&5&4&2\\
+        4&9&12&9&4\\
+        5&12&12&12&5\\
+        4&9&12&9&4\\
+        2&4&5&4&2
+        \end{bmatrix}
+    \end{align}
+    
+    \item\textbf{Gradient Computation [2pt]:}
+    After you have finished smoothing, find the image gradient in the horizontal and vertical directions. You can use Sobel operators 2 as your filter kernel to calculate $G_x$ and $G_y$. $G_x$ and $G_y$ are the gradients along the $x$ and $y$ axis respectively. $s_x$ and $s_y$ are the corresponding kernels. Compute the gradient magnitude image as $|G| = \sqrt{G^{2}_x + G^{2}_y}$. The edge direction as each pixel is given as $G_{\theta} = \tan^{-1}(\frac{G_x}{G_y}).$
+    \begin{align}
+        s_x =
+        \begin{bmatrix}
+        -1&0&1\\
+        -2&0&2\\
+        -1&0&1\\
+        \end{bmatrix},
+        s_y =
+        \begin{bmatrix}
+        -1&-2&-1\\
+        0&0&0\\
+        1&2&1\\
+        \end{bmatrix}.
+    \end{align}
+    
+    \item\textbf{Non Maximum suppression [3pt]:}
+    Our desired edges need to be sharp, not thick like the ones in gradient image. Use non maximum suppression to preserve all local maximas and discard the rest. You can use the following method to do so:\\
+    For each pixel do:\\
+    $\bullet$ Round the gradient direction $\theta$ to the nearest multiple of 45$\degree$ in a 8-connected neighbourhood.\\
+    $\bullet$ Compare the edge strength at the current pixel to the pixels along the $+ve$ and $−ve$ gradient direction in the 8-connected neighbourhood.\\
+    $\bullet$ Preserve the values of only those pixels which have maximum gradient magnitudes in the neighbourhood along the $+ve$ and $−ve$ gradient direction.\\
+        
+    \item\textbf{Hysteresis Thresholding [3pt]:}
+    Choose optimum values of thresholds and use the thresh- olding approach given in lecture 7. This will remove the edges caused due to noise and colour variations.
+\end{itemize}
+Compute the images after each step and select suitable thresholds that retains most of the true edges. For this question use the image \texttt{geisel.jpeg} in the data folder.\\
+
+\textbf{Solution:}
+
+\newpage
+\pbitem Sparse Stereo Matching [27pt]
+
+\textbf{Description:}
+
+In this problem we will play around with sparse stereo matching methods. You will work on two image pairs, a warrior figure and a figure from the Matrix movies (\texttt{warrior2.mat} and \texttt{matrix2.mat}). These files both contain two images, two camera matrices, and set sets of corresponding points (extracted by manually clicking the images). For illustration, I have run my code on a third image pair (\texttt{dino2.mat}). This data is also provided on the webpage for you to debug your code, but you should only report results on warrior and matrix. In other words, where I include one (or a pair) of images in the assignment below, you will provide the same thing but for BOTH matrix and warrior. Note that the matrix image pair is harder, in the sense that the matching algorithms we are implementing will not work quite as well. You should expect good results, however, on warrior. To make the TAs extra happy, make the line width and marker sizes bigger than the default sizes.\\
+
+\textbf{6.1 Corner Detection [8pt]}\\
+The first thing we need to do is to build a corner detector. This should be done according to \texttt{http://cseweb.ucsd.edu/classes/fa16/cse252A-a/lec7.pdf}. Your file should be named\\
+\texttt{CornerDetect.m}, and take as input\\
+\begin{lstlisting}
+corners = CornerDetect(Image, nCorners, smoothSTD, windowSize)
+\end{lstlisting}
+where \texttt{smoothSTD} is the standard deviation of the smoothing kernel, and \texttt{windowSize} the size of the smoothing window. In the lecture the corner detector was implemented using a hard threshold. Do not do that but instead return the \texttt{nCorners} strongest corners after non-maximum suppression. This way you can control exactly how many corners are returned. Run your code on all four images (with \texttt{nCorners} = 20) and show outputs.\\
+Solution:
+
+
+\textbf{6.2 SSD Matching [2pt]}\\
+Write a function \texttt{SSDmatch.m} that implements the SSD matching algorithm for two input windows. Include this code in your report (in appendix as usual).\\
+
+\textbf{6.3 Naive Matching [4pt]}\\
+Equipped with the corner detector and the SSD matching code, we are ready to start finding correspondances. One naive strategy is to try and find the best match between the two sets of corner points. Write a script that does this, namely, for each corner in image1, find the best match from the detected corners in image2 (or, if the SSD match score is too low, then return no match for that point). You will have to figure out a good threshold (SSDth) value by experimentation. Write a function \texttt{naiveCorrespondanceMatching.m} and call it as below. Examine your results for 10, 20, and 30 detected corners in each image. In your report, only include your results for 10 corners, so that the figure will not be cluttered. \texttt{naiveCorrespondanceMatching.m} will call your SSD mathch- ing code. The parameter \texttt{R} below, is the radius of the patch used for matching.\\
+\begin{lstlisting}
+ncorners = 10;
+corners1 = CornerDetect(I1, ncorners, smoothSTD, windowSize));
+corners2 = CornerDetect(I2, ncorners, smoothSTD, windowSize));
+[I, corsSSD] = naiveCorrespondanceMatching(I1, I2, corners1, corners2, R, SSDth);
+\end{lstlisting}
+
+\textbf{6.4 Epipolar Geometry [3pt]}\\
+Using the provided \texttt{fund.m} together with the provided points \texttt{cor1}, and \texttt{cor2}, calculate the fundamental matrix, and then plot the epipolar lines in both images pairs as shown below. Plot the points and make sure the epipolar lines go through them. You might find the supplied \texttt{linePts.m} function useful when you are working with epipolar lines.\\
+
+\textbf{6.5 Epipolar Geometry Based Matching [5pt]}\\
+We will now use the epipolar geometry to build a better matching algorithm. First, detect 10 corners in Image1. Then, for each corner, do a linesearch along the corresponding epipolar line in Image2. Evaluate the SSD score for each point along this line and return the best match (or no match if all scores are below the SSDth). \texttt{R} is the radius (size) of the SSD patch in the code below. You do not have to run this in both directions, but only as indicated in the code below.\\
+\begin{lstlisting}
+ncorners = 10;
+F = fund(cor1, cor2);
+corners1 = CornerDetect(I1, ncorners, smoothSTD, windowSize));
+corsSSD = correspondanceMatchingLine( I1, I2, corners1, F, R, SSDth);
+\end{lstlisting}
+
+\textbf{6.6 Triangulation [5pt]}\\
+Now that you have found correspondences between the pairs of images we can triangulate the corresponding 3D points. Since we do not enforce the ordering constraint the correspondences you have found are likely to be noisy and to contain a fair amount of outliers. Using the provided camera matrices you will triangulate a 3D point for each corresponding pair of points. Then by reprojecting the 3D points you will be able to find most of the outliers. You should implement the linear triangulation method described in lecture. \texttt{P1} and \texttt{P2} below are the camera matrices. Also write a function, \texttt{findOutliers.m}, that reprojects the world points to Image2, and then determines which points are outliers and inliers respectively. For this purpose, we will call a point an outlier if the distance between the true location, and the reprojected point location is more than 20 pixels.\\
+\begin{lstlisting}
+outlierTH = 20;
+F = fund(cor1, cor2);
+ncorners = 50;
+corners1 = CornerDetect(I1, ncorners, smoothSTD, windowSize));
+corsSSD = correspondanceMatchingLine( I1, I2, corners1, F, R, SSDth);
+points3D = triangulate(corsSSD, P1, P2);
+[ inlier, outlier ] = findOutliers(points3D, P2, outlierTH, corsSSD);
+\end{lstlisting}
+Display your results by showing, for Image2, the original points in black circles, the inliers as blue plus signs, and the outliers as red plus signs, as shown in Figure 7. Compare this outlierplot with Figure 6. Does the detected outliers correspond to false matches?
+
+\textbf{Solution:}
+        
+
+\newpage
+\text{\Large{\textbf{Appendix}}}
+\lstset{
+numbers=left
+}
+
+
+
+\end{problemlist}
+\end{document}
