@@ -302,6 +302,45 @@ points3D = triangulate(corsSSD, P1, P2);
 Display your results by showing, for Image2, the original points in black circles, the inliers as blue plus signs, and the outliers as red plus signs, as shown in Figure 7. Compare this outlierplot with Figure 6. Does the detected outliers correspond to false matches?
 
 \textbf{Solution:}
+To implement the triangulation, we use the linear triangulation method described in lecture. First, for a pair of corresponding corners in image1 and image2, we each construct two lines that passes the corner. We choose the lines simply by
+\begin{center}
+$x + y - (x_1 + y_1) = 0$\\
+$x - y - (x_1 - y_1) = 0$\\
+$x + y - (x_2 + y_2) = 0$\\
+$x - y - (x_2 - y_2) = 0$
+\end{center}
+, where$(x_1, y_1), (x_2, y_2)$ are the corners in image1 and image2.\\
+Follow the method mentioned in the lecture, we construct the matrix \textbf{A}, where
+\begin{center}
+$\textbf{A} =
+\left(
+\begin{array}{clr}
+1 &  1 & -(x_1 + y_1)\\
+1 & -1 & -(x_1 - y_1)\\
+1 &  1 & -(x_2 + y_2)\\
+1 & -1 & -(x_2 - y_2)
+\end{array}
+\right)
+$
+\end{center}
+We solve the null space for $\textbf{A}\textbf{X} = 0$ by using singular value decomposition and we take the last column of matrix \textbf{V} as our answer.\\
+To detect outliers, we project the 3D points obtained by triangulation back to image2 and see if the distance between the projection  location and the original point is greater than \texttt{outlierTH}. We project the 3D point to image2 by $\textbf{x}_2(reproject) = \textbf{P}_2\textbf{X}$, where $\textbf{P}_2$ is the camera matrix for image2.
+
+\newpage
+\textbf{Result:}
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale = 0.6]{6_6warrior.png}
+\caption{Result of Reprojection: Warrior}
+\end{figure}
+
+\newpage
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale = 0.6]{6_6matrix.png}
+\caption{Result of Reprojection: Matrix}
+\end{figure} 
+ 
         
 
 \newpage
