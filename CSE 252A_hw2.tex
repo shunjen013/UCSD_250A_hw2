@@ -3,8 +3,8 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{listings}
+\usepackage{subfigure}
 \usepackage{float}
-\usepackage{subcaption}
 \usepackage{gensymb}
 
 \coursetitle{Computer Vision I}
@@ -54,7 +54,7 @@ Consider two cameras whose image planes are the $z$ = 1 plane, and whose focal p
 \textbf{Description:}
 
 Characterize the accuracy of the 2D stereo system below. Assume the only source of noise is the localization of corresponding points in the two images (in other words, the only source of error is the disparity). Discuss the dependence of the error in depth estimation $(\Delta Z')$ as a function of baseline width $(b)$, focal length $(f)$, and depth $(Z')$.\\
-Solution:\\
+\textbf{Solution:}\\
 As mentioned in lecture 8, we assume that the localization positions of corresponding points in the two images are $X_L$ and $X_R$. By using similar triangles, we have:\\
 \begin{center}
 $X' = \frac{bX_L}{(X_L-X_R)}, Z' =  \frac{bf}{(X_L-X_R)}$, where $(X_L-X_R)$ is the disparity.\\
@@ -162,7 +162,7 @@ The first thing we need to do is to build a corner detector. This should be done
 corners = CornerDetect(Image, nCorners, smoothSTD, windowSize)
 \end{lstlisting}
 where \texttt{smoothSTD} is the standard deviation of the smoothing kernel, and \texttt{windowSize} the size of the smoothing window. In the lecture the corner detector was implemented using a hard threshold. Do not do that but instead return the \texttt{nCorners} strongest corners after non-maximum suppression. This way you can control exactly how many corners are returned. Run your code on all four images (with \texttt{nCorners} = 20) and show outputs.\\
-Solution:\\
+\textbf{Solution:}\\
 To detect the corners, we follow the method in lecture 7.\\
 1. Filter image with a Gaussian.\\
 2. Compute the gradient in both x and y directions for every pixel.\\
@@ -183,14 +183,32 @@ $
 (3) Store the smaller eigenvalue for every pixel in a matrix.\\
 4. Perform non-maximum suppression by comparing the stored eigenvalue in every pixel with its neighbors(a window). If the eigenvalue is the maximum in the window, we take this pixel as a candidate of a corner.\\
 5. We sort all the candidates by their eigenvalues, and choose the largest nCorners pixels as our result.\\
-Result:\\
+\newpage
+\textbf{Result:}
 
+\begin{figure}[!ht]
+\centering
+\subfigure{
+\includegraphics[height = 2.8 in]{6_1warrior1.png}}
+\subfigure{
+\includegraphics[height = 2.8 in]{6_1warrior2.png}}
+\caption{Corner Detection: Warrior}
+\end{figure}
 
+\begin{figure}[!ht]
+\centering
+\subfigure{
+\includegraphics[height = 2.8 in]{6_1matrix1.png}}
+\subfigure{
+\includegraphics[height = 2.8 in]{6_1matrix2.png}}
+\caption{Corner Detection: Matrix}
+\end{figure}
 
-
-
+\newpage
 \textbf{6.2 SSD Matching [2pt]}\\
 Write a function \texttt{SSDmatch.m} that implements the SSD matching algorithm for two input windows. Include this code in your report (in appendix as usual).\\
+\textbf{Solution:}\\
+To implement the SSD matching algorithm, we simply vectorizes the two input windows and then take the 2-norm of their difference.\\
 
 \textbf{6.3 Naive Matching [4pt]}\\
 Equipped with the corner detector and the SSD matching code, we are ready to start finding correspondances. One naive strategy is to try and find the best match between the two sets of corner points. Write a script that does this, namely, for each corner in image1, find the best match from the detected corners in image2 (or, if the SSD match score is too low, then return no match for that point). You will have to figure out a good threshold (SSDth) value by experimentation. Write a function \texttt{naiveCorrespondanceMatching.m} and call it as below. Examine your results for 10, 20, and 30 detected corners in each image. In your report, only include your results for 10 corners, so that the figure will not be cluttered. \texttt{naiveCorrespondanceMatching.m} will call your SSD mathch- ing code. The parameter \texttt{R} below, is the radius of the patch used for matching.\\
@@ -200,10 +218,50 @@ corners1 = CornerDetect(I1, ncorners, smoothSTD, windowSize));
 corners2 = CornerDetect(I2, ncorners, smoothSTD, windowSize));
 [I, corsSSD] = naiveCorrespondanceMatching(I1, I2, corners1, corners2, R, SSDth);
 \end{lstlisting}
+\textbf{Solution:}\\
+We simply follow the instruction above to search the best match in image2 for every corner in image1. We adjust the SSD threshold so that it can have the highest percentage of correct matches. In the end, we got 4 correct matches among 7 matches in Warrior images and 3 correct matches among 9 matches in Matrix images.\\
+\newpage
+\textbf{Result:}
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale = 1.0]{6_3warrior.png}
+\caption{Naive Matching: Warrior}
+\end{figure}
 
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale = 1.0]{6_3matrix.png}
+\caption{Naive Matching: Matrix}
+\end{figure}
+
+\newpage
 \textbf{6.4 Epipolar Geometry [3pt]}\\
 Using the provided \texttt{fund.m} together with the provided points \texttt{cor1}, and \texttt{cor2}, calculate the fundamental matrix, and then plot the epipolar lines in both images pairs as shown below. Plot the points and make sure the epipolar lines go through them. You might find the supplied \texttt{linePts.m} function useful when you are working with epipolar lines.\\
+\textbf{Solution:}\\
+To compute the epipolar line in image1 for the the corner in image2, we use $l_1 = \textbf{F}^Tp_2$\\
+To compute the epipolar line in image2 for the the corner in image1, we use $l_2 = \textbf{F}p_1$\\
+The \textbf{F} above is the fundimental matrix.\\
+\textbf{Result:}
+\begin{figure}[!ht]
+\centering
+\subfigure{
+\includegraphics[height = 2.3 in]{6_4warrior1.png}}
+\subfigure{
+\includegraphics[height = 2.3 in]{6_4warrior2.png}}
+\caption{Epipolar Lines: Warrior}
+\end{figure}
 
+\begin{figure}[!ht]
+\centering
+\subfigure{
+\includegraphics[height = 2.3 in]{6_4matrix1.png}}
+\subfigure{
+\includegraphics[height = 2.3 in]{6_4matrix2.png}}
+\caption{Epipolar Lines: Matrix}
+\end{figure}
+
+
+\newpage
 \textbf{6.5 Epipolar Geometry Based Matching [5pt]}\\
 We will now use the epipolar geometry to build a better matching algorithm. First, detect 10 corners in Image1. Then, for each corner, do a linesearch along the corresponding epipolar line in Image2. Evaluate the SSD score for each point along this line and return the best match (or no match if all scores are below the SSDth). \texttt{R} is the radius (size) of the SSD patch in the code below. You do not have to run this in both directions, but only as indicated in the code below.\\
 \begin{lstlisting}
@@ -212,7 +270,24 @@ F = fund(cor1, cor2);
 corners1 = CornerDetect(I1, ncorners, smoothSTD, windowSize));
 corsSSD = correspondanceMatchingLine( I1, I2, corners1, F, R, SSDth);
 \end{lstlisting}
+\textbf{Solution:}\\
+To do the linesearch, we have to interpolate the pixels from the line. We interpolate the pixels by first using the supplied \texttt{linePts.m} to find the two end points of the line. Then for every x and y in between these end points, we compute a corresponding y and x by the slope of the line.\\
+The other processes are as same as the processes in 6.3.\\
+\newpage
+\textbf{Result:}
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale = 1.0]{6_5warrior.png}
+\caption{Epipolar Geometry Based Matching: Warrior}
+\end{figure}
 
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale = 1.0]{6_5matrix.png}
+\caption{Epipolar Geometry Based Matching: Matrix}
+\end{figure} 
+
+\newpage
 \textbf{6.6 Triangulation [5pt]}\\
 Now that you have found correspondences between the pairs of images we can triangulate the corresponding 3D points. Since we do not enforce the ordering constraint the correspondences you have found are likely to be noisy and to contain a fair amount of outliers. Using the provided camera matrices you will triangulate a 3D point for each corresponding pair of points. Then by reprojecting the 3D points you will be able to find most of the outliers. You should implement the linear triangulation method described in lecture. \texttt{P1} and \texttt{P2} below are the camera matrices. Also write a function, \texttt{findOutliers.m}, that reprojects the world points to Image2, and then determines which points are outliers and inliers respectively. For this purpose, we will call a point an outlier if the distance between the true location, and the reprojected point location is more than 20 pixels.\\
 \begin{lstlisting}
@@ -230,6 +305,7 @@ Display your results by showing, for Image2, the original points in black circle
         
 
 \newpage
+
 \text{\Large{\textbf{Appendix}}}
 \lstset{
 numbers=left

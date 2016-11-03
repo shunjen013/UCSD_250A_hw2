@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.10.4)  3 NOV 2016 07:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.10.4)  3 NOV 2016 16:09
 entering extended mode
 **"./CSE 252A_hw2.tex"
 ("CSE 252A_hw2.tex"
@@ -258,38 +258,33 @@ File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\subfigure\subfigure.sty"
+Package: subfigure 2002/07/30 v2.1.4 subfigure package
+\subfigtopskip=\skip47
+\subfigcapskip=\skip48
+\subfigcaptopadj=\dimen122
+\subfigbottomskip=\skip49
+\subfigcapmargin=\dimen123
+\subfiglabelskip=\skip50
+\c@subfigure=\count119
+\c@lofdepth=\count120
+\c@subtable=\count121
+\c@lotdepth=\count122
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\subfigure\subfigure.cfg")
+\subfig@top=\skip51
+\subfig@bottom=\skip52
+)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count119
+\c@float@type=\count123
 \float@exts=\toks21
 \float@box=\box30
 \@float@everytoks=\toks22
 \@floatcapt=\box31
-)
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\subcaption.sty"
-Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
-
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption.sty"
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
-
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption3.sty"
-Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen122
-\captionmargin@=\dimen123
-\captionwidth=\dimen124
-\caption@tempdima=\dimen125
-\caption@indent=\dimen126
-\caption@parindent=\dimen127
-\caption@hangindent=\dimen128
-)
-\c@ContinuedFloat=\count120
-Package caption Info: float package is loaded.
-Package caption Info: hyperref package is loaded.
-Package caption Info: listings package is loaded.
-)
-\c@subfigure=\count121
-\c@subtable=\count122
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\was\gensymb.sty"
 Package: gensymb 2003/07/02 v1.0 (WaS)
@@ -317,16 +312,16 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10> not available
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count123
-\scratchdimen=\dimen129
+\scratchcounter=\count124
+\scratchdimen=\dimen124
 \scratchbox=\box32
-\nofMPsegments=\count124
-\nofMParguments=\count125
+\nofMPsegments=\count125
+\nofMParguments=\count126
 \everyMPshowfont=\toks23
-\MPscratchCnt=\count126
-\MPscratchDim=\dimen130
-\MPnumerator=\count127
-\makeMPintoPDFobject=\count128
+\MPscratchCnt=\count127
+\MPscratchDim=\dimen125
+\MPnumerator=\count128
+\makeMPintoPDFobject=\count129
 \everyMPtoPDFconversion=\toks24
 ) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -348,7 +343,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count129
+\c@section@level=\count130
 )
 LaTeX Info: Redefining \ref on input line 18.
 LaTeX Info: Redefining \pageref on input line 18.
@@ -357,9 +352,7 @@ LaTeX Info: Redefining \nameref on input line 18.
 \@outlinefile=\write3
 \openout3 = `"CSE 252A_hw2.out"'.
 
-\c@lstlisting=\count130
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count131
 LaTeX Info: Redefining \celsius on input line 18.
 Package gensymb Info: Faking symbols for \degree and \celsius on input line 18.
 
@@ -507,192 +500,184 @@ Underfull \hbox (badness 10000) in paragraph at lines 164--171
 
  []
 
-! Missing number, treated as zero.
-<to be read again> 
-                   \let 
-l.190 ...raphics[height = 1.6in]{6_1warrior1.png}}
-                                                  
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
 
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   \let 
-l.190 ...raphics[height = 1.6in]{6_1warrior1.png}}
-                                                  
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
+Underfull \hbox (badness 10000) in paragraph at lines 182--186
 
-<6_1warrior1.png, id=45, 742.27313pt x 687.31781pt>
+ []
+
+[7] <6_1warrior1.png, id=52, 742.27313pt x 687.31781pt>
 File: 6_1warrior1.png Graphic file (type png)
  <use 6_1warrior1.png>
-Package pdftex.def Info: 6_1warrior1.png used on input line 190.
-(pdftex.def)             Requested size: 124.87093pt x 115.63243pt.
+Package pdftex.def Info: 6_1warrior1.png used on input line 192.
+(pdftex.def)             Requested size: 218.52696pt x 202.35622pt.
 
-! Missing number, treated as zero.
-<to be read again> 
-                   \let 
-l.193 ...raphics[height = 1.6in]{6_1warrior2.png}}
-                                                  
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   \let 
-l.193 ...raphics[height = 1.6in]{6_1warrior2.png}}
-                                                  
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-<6_1warrior2.png, id=46, 742.27313pt x 687.31781pt>
+<6_1warrior2.png, id=53, 742.27313pt x 687.31781pt>
 File: 6_1warrior2.png Graphic file (type png)
  <use 6_1warrior2.png>
-Package pdftex.def Info: 6_1warrior2.png used on input line 193.
-(pdftex.def)             Requested size: 124.87093pt x 115.63243pt.
+Package pdftex.def Info: 6_1warrior2.png used on input line 194.
+(pdftex.def)             Requested size: 218.52696pt x 202.35622pt.
 
-Overfull \hbox (11.81937pt too wide) in paragraph at lines 194--194
-[]\OT1/cmr/m/n/9 (a)
- []
+<6_1matrix1.png, id=54, 742.27313pt x 687.31781pt>
+File: 6_1matrix1.png Graphic file (type png)
+ <use 6_1matrix1.png>
+Package pdftex.def Info: 6_1matrix1.png used on input line 201.
+(pdftex.def)             Requested size: 218.52696pt x 202.35622pt.
 
-
-Overfull \hbox (18.00682pt too wide) in paragraph at lines 194--194
-|\OT1/cmr/m/n/9 Cor-
- []
-
-
-Overfull \hbox (12.87143pt too wide) in paragraph at lines 194--194
-\OT1/cmr/m/n/9 ner
- []
-
-
-Overfull \hbox (14.26308pt too wide) in paragraph at lines 194--194
-\OT1/cmr/m/n/9 De-
- []
+<6_1matrix2.png, id=55, 742.27313pt x 687.31781pt>
+File: 6_1matrix2.png Graphic file (type png)
+ <use 6_1matrix2.png>
+Package pdftex.def Info: 6_1matrix2.png used on input line 203.
+(pdftex.def)             Requested size: 218.52696pt x 202.35622pt.
+ [8pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 
 
-Overfull \hbox (14.90614pt too wide) in paragraph at lines 194--194
-\OT1/cmr/m/n/9 tec-
- []
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.207 \newpage
+              pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplic
+ate ignored
 
-
-Overfull \hbox (18.49988pt too wide) in paragraph at lines 194--194
-\OT1/cmr/m/n/9 tion:
- []
-
-
-Overfull \hbox (17.74988pt too wide) in paragraph at lines 194--194
-\OT1/cmr/m/n/9 war-
- []
-
-
-Overfull \hbox (14.43045pt too wide) in paragraph at lines 194--194
-\OT1/cmr/m/n/9 rior| 
- []
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.195 \end{figure}
-                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-Overfull \hbox (124.87093pt too wide) in paragraph at lines 191--195
-[] 
- []
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.195 \end{figure}
-                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 182--196
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.207 \newpage
+               <./6_1warrior1.png (PNG copy)> <./6_1warrior2.png (PNG copy)> <./6_1matrix1.png (PNG copy)> <./6_1matrix2
+.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 208--212
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 200--202
-
- []
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 203--205
+Underfull \hbox (badness 10000) in paragraph at lines 213--215
 
  []
 
 
-Overfull \hbox (41.24998pt too wide) in paragraph at lines 209--210
+Overfull \hbox (41.24998pt too wide) in paragraph at lines 219--220
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--214
+Underfull \hbox (badness 10000) in paragraph at lines 221--223
+
+ []
+
+[9] <6_3warrior.png, id=75, 428.35031pt x 215.30438pt>
+File: 6_3warrior.png Graphic file (type png)
+ <use 6_3warrior.png>
+Package pdftex.def Info: 6_3warrior.png used on input line 227.
+(pdftex.def)             Requested size: 428.34926pt x 215.30385pt.
+
+<6_3matrix.png, id=76, 427.5975pt x 214.55156pt>
+File: 6_3matrix.png Graphic file (type png)
+ <use 6_3matrix.png>
+Package pdftex.def Info: 6_3matrix.png used on input line 233.
+(pdftex.def)             Requested size: 427.59645pt x 214.55103pt.
+ [10pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignore
+d
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.237 \newpage
+              pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplic
+ate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.237 \newpage
+               <./6_3warrior.png (PNG copy)> <./6_3matrix.png (PNG copy)>]
+<6_4warrior1.png, id=83, 742.27313pt x 687.31781pt>
+File: 6_4warrior1.png Graphic file (type png)
+ <use 6_4warrior1.png>
+Package pdftex.def Info: 6_4warrior1.png used on input line 248.
+(pdftex.def)             Requested size: 179.50833pt x 166.2212pt.
+
+<6_4warrior2.png, id=84, 742.27313pt x 687.31781pt>
+File: 6_4warrior2.png Graphic file (type png)
+ <use 6_4warrior2.png>
+Package pdftex.def Info: 6_4warrior2.png used on input line 250.
+(pdftex.def)             Requested size: 179.50833pt x 166.2212pt.
+
+<6_4matrix1.png, id=85, 742.27313pt x 687.31781pt>
+File: 6_4matrix1.png Graphic file (type png)
+ <use 6_4matrix1.png>
+Package pdftex.def Info: 6_4matrix1.png used on input line 257.
+(pdftex.def)             Requested size: 179.50833pt x 166.2212pt.
+
+<6_4matrix2.png, id=86, 742.27313pt x 687.31781pt>
+File: 6_4matrix2.png Graphic file (type png)
+ <use 6_4matrix2.png>
+Package pdftex.def Info: 6_4matrix2.png used on input line 259.
+(pdftex.def)             Requested size: 179.50833pt x 166.2212pt.
+ [11pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignore
+d
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.264 \newpage
+              pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplic
+ate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.264 \newpage
+               <./6_4warrior1.png (PNG copy)> <./6_4warrior2.png (PNG copy)> <./6_4matrix1.png (PNG copy)> <./6_4matrix2
+.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 265--267
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 215--217
+Underfull \hbox (badness 10000) in paragraph at lines 273--276
 
  []
 
+[12] <6_5warrior.png, id=106, 426.09187pt x 213.79875pt>
+File: 6_5warrior.png Graphic file (type png)
+ <use 6_5warrior.png>
+Package pdftex.def Info: 6_5warrior.png used on input line 280.
+(pdftex.def)             Requested size: 426.09082pt x 213.79822pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 224--226
+<6_5matrix.png, id=107, 426.84468pt x 214.55156pt>
+File: 6_5matrix.png Graphic file (type png)
+ <use 6_5matrix.png>
+Package pdftex.def Info: 6_5matrix.png used on input line 286.
+(pdftex.def)             Requested size: 426.84364pt x 214.55103pt.
+ [13pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignore
+d
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.290 \newpage
+              pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplic
+ate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.290 \newpage
+               <./6_5warrior.png (PNG copy)> <./6_5matrix.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 291--293
 
  []
 
-[8] [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 249.
- [10]
-
-! LaTeX Error: Float(s) lost.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.249 \end{document}
-                    
-You've lost some text.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 249.
-("CSE 252A_hw2.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 249.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 249.
+[14]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 317.
+ [15]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 317.
+ ("CSE 252A_hw2.aux")
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 317.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 317.
 Package rerunfilecheck Info: File `"CSE 252A_hw2".out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 249.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 317.
  ) 
 Here is how much of TeX's memory you used:
- 8136 strings out of 493334
- 122285 string characters out of 3136666
- 223260 words of memory out of 3000000
- 11566 multiletter control sequences out of 15000+200000
- 6834 words of font info for 25 fonts, out of 3000000 for 9000
+ 7283 strings out of 493334
+ 105814 string characters out of 3136666
+ 200031 words of memory out of 3000000
+ 10684 multiletter control sequences out of 15000+200000
+ 7154 words of font info for 26 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,14n,40p,1031b,954s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,14n,32p,1031b,954s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
 type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pro
 gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
@@ -704,9 +689,9 @@ b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
 /type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Pro
 gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on "CSE 252A_hw2.pdf" (10 pages, 228114 bytes).
+Output written on "CSE 252A_hw2.pdf" (15 pages, 4929600 bytes).
 PDF statistics:
- 147 PDF objects out of 1000 (max. 8388607)
- 33 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 199 PDF objects out of 1000 (max. 8388607)
+ 54 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

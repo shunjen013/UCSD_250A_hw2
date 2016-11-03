@@ -1,19 +1,19 @@
 clc;
 
 %% 6.1 dino
-clear all;
-load('dino2.mat');
-
-nCorners = 20;
-smoothSTD = 1;
-windowSize = 10;
-corners_1 = CornerDetect(dino01, nCorners, smoothSTD, windowSize);
-corners_2 = CornerDetect(dino02, nCorners, smoothSTD, windowSize);
-
-figure;
-showMarker1(dino01, corners_1);
-figure;
-showMarker1(dino02, corners_2);
+% clear all;
+% load('dino2.mat');
+% 
+% nCorners = 20;
+% smoothSTD = 1;
+% windowSize = 10;
+% corners_1 = CornerDetect(dino01, nCorners, smoothSTD, windowSize);
+% corners_2 = CornerDetect(dino02, nCorners, smoothSTD, windowSize);
+% 
+% figure;
+% showMarker1(dino01, corners_1);
+% figure;
+% showMarker1(dino02, corners_2);
 
 %% 6.1 warrior
 clear all;
@@ -46,21 +46,21 @@ figure;
 showMarker1(matrix02, corners_2);
 
 %% 6.2 6.3 dino
-clear all;
-load('dino2.mat');
-
-nCorners = 10;
-smoothSTD = 1;
-windowSize = 10;
-corners_1 = CornerDetect(dino01, nCorners, smoothSTD, windowSize);
-corners_2 = CornerDetect(dino02, nCorners, smoothSTD, windowSize);
-
-R = 20;
-SSDth = 70;
-corsSSD = naiveCorrespondanceMatching(dino01, dino02, corners_1, corners_2, R, SSDth);
-
-figure;
-showMatching(dino01,dino02,corners_1,corsSSD);
+% clear all;
+% load('dino2.mat');
+% 
+% nCorners = 10;
+% smoothSTD = 1;
+% windowSize = 10;
+% corners_1 = CornerDetect(dino01, nCorners, smoothSTD, windowSize);
+% corners_2 = CornerDetect(dino02, nCorners, smoothSTD, windowSize);
+% 
+% R = 20;
+% SSDth = 70;
+% corsSSD = naiveCorrespondanceMatching(dino01, dino02, corners_1, corners_2, R, SSDth);
+% 
+% figure;
+% showMatching(dino01,dino02,corners_1,corsSSD);
 
 %% 6.2 6.3 warrior
 clear all;
@@ -90,31 +90,31 @@ corners_1 = CornerDetect(matrix01, nCorners, smoothSTD, windowSize);
 corners_2 = CornerDetect(matrix02, nCorners, smoothSTD, windowSize);
 
 R = 20;
-SSDth = 200;
+SSDth = 190;
 corsSSD = naiveCorrespondanceMatching(matrix01, matrix02, corners_1, corners_2, R, SSDth);
 
 figure;
 showMatching(matrix01,matrix02,corners_1,corsSSD);
 
 %% 6.4 dino
-clear all;
-load('dino2.mat');
-FMatrix = fund(cor1, cor2);
-epiLine_1 = [];
-epiLine_2 = [];
-for i = 1:size(cor1, 1)
-    line_1 = linePts(FMatrix' *[cor2(i,:),1]', [1, size(dino01, 2)], [1, size(dino01, 1)]);
-    epiLine_1 = [epiLine_1; line_1(1,:), line_1(2,:)];
-    line_2 = linePts(FMatrix  *[cor1(i,:),1]', [1, size(dino02, 2)], [1, size(dino02, 1)]);
-    epiLine_2 = [epiLine_2; line_2(1,:), line_2(2,:)];
-end
-
-figure;
-img_1 = insertShape(dino01,'Line',epiLine_1,'LineWidth',5);
-showMarker1(img_1, cor1);
-figure;
-img_2 = insertShape(dino02,'Line',epiLine_2,'LineWidth',5);
-showMarker1(img_2, cor2);
+% clear all;
+% load('dino2.mat');
+% FMatrix = fund(cor1, cor2);
+% epiLine_1 = [];
+% epiLine_2 = [];
+% for i = 1:size(cor1, 1)
+%     line_1 = linePts(FMatrix' *[cor2(i,:),1]', [1, size(dino01, 2)], [1, size(dino01, 1)]);
+%     epiLine_1 = [epiLine_1; line_1(1,:), line_1(2,:)];
+%     line_2 = linePts(FMatrix  *[cor1(i,:),1]', [1, size(dino02, 2)], [1, size(dino02, 1)]);
+%     epiLine_2 = [epiLine_2; line_2(1,:), line_2(2,:)];
+% end
+% 
+% figure;
+% img_1 = insertShape(dino01,'Line',epiLine_1,'LineWidth',5);
+% showMarker1(img_1, cor1);
+% figure;
+% img_2 = insertShape(dino02,'Line',epiLine_2,'LineWidth',5);
+% showMarker1(img_2, cor2);
 
 %% 6.4 warrior
 clear all;
@@ -157,21 +157,21 @@ img_2 = insertShape(matrix02,'Line',epiLine_2,'LineWidth',5);
 showMarker1(img_2, cor2);
 
 %% 6.5 dino
-clear all;
-load('dino2.mat');
-
-nCorners = 10;
-smoothSTD = 1;
-windowSize = 10;
-corners_1 = CornerDetect(dino01, nCorners, smoothSTD, windowSize);
-
-FMatrix = fund(cor1, cor2);
-R = 20;
-SSDth = 70;
-corsSSD = correspondanceMatchingLine(dino01, dino02, corners_1, FMatrix, R, SSDth);
-
-figure;
-showMatching(dino01,dino02,corners_1,corsSSD);
+% clear all;
+% load('dino2.mat');
+% 
+% nCorners = 10;
+% smoothSTD = 1;
+% windowSize = 10;
+% corners_1 = CornerDetect(dino01, nCorners, smoothSTD, windowSize);
+% 
+% FMatrix = fund(cor1, cor2);
+% R = 20;
+% SSDth = 70;
+% corsSSD = correspondanceMatchingLine(dino01, dino02, corners_1, FMatrix, R, SSDth);
+% 
+% figure;
+% showMatching(dino01,dino02,corners_1,corsSSD);
 
 %% 6.5 warrior
 clear all;
@@ -208,26 +208,26 @@ figure;
 showMatching(matrix01,matrix02,corners_1,corsSSD);
 
 %% 6.6 dino
-clear all;
-load('dino2.mat');
-
-nCorners = 50;
-smoothSTD = 1;
-windowSize = 10;
-corners_1 = CornerDetect(dino01, nCorners, smoothSTD, windowSize);
-
-FMatrix = fund(cor1, cor2);
-R = 20;
-SSDth = 70;
-corsSSD = correspondanceMatchingLine(dino01, dino02, corners_1, FMatrix, R, SSDth);
-
-points3D = Triangulate(corners_1, corsSSD, proj_7, proj_8);
-
-outlierTH = 20;
-[inlier, outlier] = findOutliers(points3D, proj_8, outlierTH, corsSSD);
-
-figure;
-showMarker3(dino02, corsSSD, inlier, outlier);
+% clear all;
+% load('dino2.mat');
+% 
+% nCorners = 50;
+% smoothSTD = 1;
+% windowSize = 10;
+% corners_1 = CornerDetect(dino01, nCorners, smoothSTD, windowSize);
+% 
+% FMatrix = fund(cor1, cor2);
+% R = 20;
+% SSDth = 70;
+% corsSSD = correspondanceMatchingLine(dino01, dino02, corners_1, FMatrix, R, SSDth);
+% 
+% points3D = Triangulate(corners_1, corsSSD, proj_7, proj_8);
+% 
+% outlierTH = 20;
+% [inlier, outlier] = findOutliers(points3D, proj_8, outlierTH, corsSSD);
+% 
+% figure;
+% showMarker3(dino02, corsSSD, inlier, outlier);
 
 %% 6.6 warrior
 clear all;
