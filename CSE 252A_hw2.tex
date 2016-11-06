@@ -6,11 +6,13 @@
 \usepackage{subfigure}
 \usepackage{float}
 \usepackage{gensymb}
+\usepackage{enumitem}
 
 \coursetitle{Computer Vision I}
 \courselabel{CSE 252A}
 \exercisesheet{Homework 2}{}
 \student{Wei-Yuan Wen, Yen-Ting Chen, Shun-Jen Lee}
+\pid{A53202335, A53214417, A53209671}
 \university{University of California, San Diego}
 \semester{Fall 2016}
 \date{November 2, 2016}
@@ -80,23 +82,241 @@ Hence, we can observe that $(\Delta Z')$ is in proportional to the square of est
 In this problem we will play with convolution filters. Filters, when convolved with an image, will fire strongest on locations of an image that look like the filter. This allows us to use filters as object templates in order to identify specific objects within an image. In the case of this assignment, we will be finding cars within an image by convolving a car template onto that image. Although this is not a very good way to do object detection, this problem will show you some of the steps necessary to create a good object detector. The goal of this problem will be to teach some pre-processing steps to make vision algorithms be successful and some strengths and weaknesses of filters. Each problem will ask you to analyze and explain your results. If you do not provide an explanation of why or why not something happened, then you will not get full credit. Provide your code in the appendix.\\
 
 \textbf{4.1 Warmup [3pt]}\\
-First you will convolve a filter to a synthetic image. The filter or template is \texttt{filter.jpg} and the synthetic image is \texttt{toy.png}. These files are available on the course webpage. You may want to modify the filter image and original slightly. I suggest \texttt{filter\_img = filter img - mean(filter img(:))}. To convolve the filter image with the toy example, in Matlab you will want to use \texttt{conv2}. The output of the convolution will create an intensity image. Provide this image in the report. In the original image (not the image with its mean subtracted), draw a bounding box of the same size as the filter image around the top 3 intensity value locations in the convolved image. The outputs should look like Figure 1. Describe how well you think this will technique will work on more realistic images? Do you foresee any problems for this algorithm on more realistic images?\\
+First you will convolve a filter to a synthetic image. The filter or template is \texttt{filter.jpg} and the synthetic image is \texttt{toy.png}. These files are available on the course webpage. You may want to modify the filter image and original slightly. I suggest \texttt{filter\_img = filter\_img - mean(filter\_img(:))}. To convolve the filter image with the toy example, in Matlab you will want to use \texttt{conv2}. The output of the convolution will create an intensity image. Provide this image in the report. In the original image (not the image with its mean subtracted), draw a bounding box of the same size as the filter image around the top 3 intensity value locations in the convolved image. Describe how well you think this technique will work on more realistic images? Do you foresee any problems for this algorithm on more realistic images?\\
 
 \textbf{4.2 Detection Error [3pt]}\\
 We have now created an algorithm that produces a bounding box around a detected object. However we have no way to know if the bounding box is good or bad. In the example images shown above, the bounding boxes look reasonable, but not perfect. Given a ground truth bounding box $(g)$ and a predicted bounding box $(p)$, a commonly used measurement for bounding box quality is $\frac{p\cap q}{p\cup q}$. More intuitively, this is the number of overlapping pixels between the bounding boxes divided by the total number of unique pixels of the two bounding boxes combined. Assuming that all bounding boxes will be axis-aligned rectangles, implement this error function and try it on the toy example in the previous section. Choose 3 different ground truth bounding box sizes around one of the Mickey silhouettes. In general, if the overlap is 50\% or more, you may consider that the detection did a good job.\\
 
 \textbf{4.3 More Realistic Images [8pt]}\\
-Now that you have created an algorithm for matching templates and a function to determine the quality of the match, it is time to try some more realistic images. The file, \texttt{cartemplate.jpg}, will be the filter to convolve on each of the 5 other car images (\texttt{car1.jpg, car2.jpg, car3.jpg, car4.jpg, car5.jpg}). Each image will have an associated text files that contains 2 $x, y$ coordinates (one pair per line). These coordinates will be the ground truth bounding box for each image. For each car image, provide the following:\\
+Now that you have created an algorithm for matching templates and a function to determine the quality of the match, it is time to try some more realistic images. The file, \texttt{cartemplate.jpg}, will be the filter to convolve on each of the 5 other car images (\texttt{car1.jpg, car2.jpg, car3.jpg, car4.jpg, car5.jpg}). Each image will have an associated text files that contains 2 $x, y$ coordinates (one pair per line). These coordinates will be the ground truth bounding box for each image. For each car image, provide the following:
 \begin{itemize}
-    \item A heat map image.\\
-    \item A bounding box drawn on the original image.\\
-    \item The bounding box overlap percent.\\
-    \item A description of what pre-processing steps you needed to do to achieve this overlap.\\
-    \item An explanation of why you felt these steps made sense.\\
+    \item A heat map image.
+    \item A bounding box drawn on the original image.
+    \item The bounding box overlap percent.
+    \item A description of what pre-processing steps you needed to do to achieve this overlap.
+    \item An explanation of why you felt these steps made sense.
 \end{itemize}
 
 \textbf{4.4 Invariance [2pt]}\\
-In computer vision there is often a desire for features or algorithms to be invariant to X. One example briefly described in class was illumination invariance. The detection algorithm that was implemented for this problem may have seemed a bit brittle. Can you describe a few things that this algorithm was not invariant to? For example, this algorithm was not scale-invariant, meaning the size of the filter with respect to the size of the object being detected mattered. One filter size should not have worked on everything.
+In computer vision there is often a desire for features or algorithms to be invariant to X. One example briefly described in class was illumination invariance. The detection algorithm that was implemented for this problem may have seemed a bit brittle. Can you describe a few things that this algorithm was not invariant to? For example, this algorithm was not scale-invariant, meaning the size of the filter with respect to the size of the object being detected mattered. One filter size should not have worked on everything.\\
+
+\textbf{Solution:}
+
+\textbf{4.1 Warmup:}\\
+First, I pre-processed the filter by using \texttt{filter\_img = filter\_img - mean(filter\_img(:))}. Then I used \texttt{conv2} to convolve the filter to the toy image and got an intensity image. The intensity image is shown as Fig.~\ref{fig:4_1subfig:a}.\\
+To draw bounding boxes around the top 3 intensity value, I first found the top 3 intensity value and got the responding coordinates. Then I used \texttt{rectangle} to draw bounding boxes of the same size as the filter image around these coordinates in the original image. The result is shown as Fig.~\ref{fig:4_1subfig:b}.\\
+I think this technique won't work well on more realistic images since the background of the input image is pretty simple. Also, the filter is pretty as the same size of the object we want to find, so we won't need to do much pre-processing steps on the filter image. If we apply this algorithm on more realistic images, the maximum of the intensity image may not be locate at the object we want to find, since the background will be complicated and distracting. This will mislead us to draw the bounding box on different location in the image. On the other hand, we may not use only a simple filter image to find various kind of object in the same category, or we need to do some more pre-processing steps to get an accurate bounding box.\\
+
+The codes are attached as Listing 1 in Appendix.\\
+
+\textbf{4.2 Detection Error:}\\
+I wrote a function named \texttt{detectError}, which takes ground truth box and predicted bounding box as two arguments. Since I have the length and width and at least 2 coordinates of these rectangles, I can easily compute the number of overlapping pixels of the two bounding boxes between the bounding boxes and then divide it by the total number of unique pixels of the two bounding boxes.
+I then constructed 3 ground truth bounding boxes around one of the Mickey silhouettes and found the overlap is more than 50\%.\\
+
+The codes are attached as Listing 3 in Appendix.\\
+
+\textbf{4.3 More Realistic Images:}\\
+For \texttt{car1} image:
+\begin{itemize}
+    \item Bounding box overlap percent: 94.72\%.
+    \item Pre-processing steps: 
+    \begin{enumerate}[label={\alph*)}]
+        \item Subtracted both filter image and \texttt{car1} image by their means.
+        \item Crop the filter.
+        \item Rescale the filter image to the size of ground truth bounding box.
+        \item Flip the filter image in x and y dimensions before convolution.
+    \end{enumerate}
+    \item Explanation: 
+    \begin{enumerate}[label={\alph*)}]
+        \item I want the object in \texttt{car1} that looks like the filter image has maximums of intensity values, so I subtracted both filter image and \texttt{car1} image by their means.
+        \item I first cropped the filter image to get rid of the blank area, because I don't want the blank to affect my result of convolution.
+        \item Then I rescaled the filter image to the size of ground truth bounding box, this way the intensity image will be more accurate and make the maximum locate at the position of \texttt{car1}.
+        \item To do the convolution, we need to make sure the filter image is upside down and reversed from left to right, so I flipped it in x and y dimensions right before convolution.
+    \end{enumerate}
+    \item The result is shown as Fig.~\ref{fig:4_3car1_subfig:a} and Fig.~\ref{fig:4_3car1_subfig:b}.
+\end{itemize}
+
+For \texttt{car2} image:
+\begin{itemize}
+    \item Bounding box overlap percent: 89.59\%.
+    \item Pre-processing steps: 
+    \begin{enumerate}[label={\alph*)}]
+        \item Subtracted both filter image and \texttt{car2} image by their means.
+        \item Crop the filter.
+        \item Rescale the filter image to the size of ground truth bounding box.
+        \item Reverse the filter image from left to right.
+        \item Flip the filter image in x and y dimensions before convolution.
+    \end{enumerate}
+    \item Explanation: 
+    \begin{enumerate}[label={\alph*)}]
+        \item I want the object in \texttt{car2} that looks like the filter image has maximums of intensity values, so I subtracted both filter image and \texttt{car2} image by their means.
+        \item I cropped the filter to get rid of the blank area, because I don't want the blank to affect my result of convolution.
+        \item Then I rescaled the filter image to the size of ground truth bounding box, this way the intensity image will be more accurate and make the maximum locate at the position of \texttt{car2}.
+        \item I reversed the filter image from left to right, since the head of the car in the \texttt{car2} image points toward right.
+        \item To do the convolution, we need to make sure the filter image is upside down and reversed from left to right, so I flipped it in x and y dimensions right before convolution.
+    \end{enumerate}
+    \item The result is shown as Fig.~\ref{fig:4_3car2_subfig:a} and Fig.~\ref{fig:4_3car2_subfig:b}.
+\end{itemize}
+
+For \texttt{car3} image:
+\begin{itemize}
+    \item Bounding box overlap percent: 50.80\%.
+    \item Pre-processing steps: 
+    \begin{enumerate}[label={\alph*)}]
+        \item Subtracted both filter image and \texttt{car3} image by their means.
+        \item Crop the filter.
+        \item Rescale the filter image to the size of the rear part of the car in \texttt{car3} image.
+        \item Flip the filter image in x and y dimensions before convolution.
+    \end{enumerate}
+    \item Explanation: 
+    \begin{enumerate}[label={\alph*)}]
+        \item I want the object in \texttt{car3} that looks like the filter image has maximums of intensity values, so I subtracted both filter image and \texttt{car3} image by their means.
+        \item I cropped the filter to get rid of the blank area, because I don't want the blank to affect my result of convolution.
+        \item Then I rescaled the filter image to the size of the rear part of the car in \texttt{car3} image, because I thought somehow that rear part looks more alike with the filter image than the side part. This way the intensity image will be more accurate and make the maximum locate at the position of \texttt{car3}.
+        \item To do the convolution, we need to make sure the filter image is upside down and reversed from left to right, so I flipped it in x and y dimensions right before convolution.
+    \end{enumerate}
+    \item The result is shown as Fig.~\ref{fig:4_3car3_subfig:a} and Fig.~\ref{fig:4_3car3_subfig:b}.
+\end{itemize}
+
+For \texttt{car4} image:
+\begin{itemize}
+    \item Bounding box overlap percent: 65.35\%.
+    \item Pre-processing steps: 
+    \begin{enumerate}[label={\alph*)}]
+        \item Subtracted both filter image and \texttt{car2} image by their means.
+        \item Crop the filter.
+        \item Add 0.1 on each pixel in the filter image.
+        \item Rescale the filter image to the size of ground truth bounding box.
+        \item Reverse the filter image from left to right.
+        \item Flip the filter image in x and y dimensions before convolution.
+    \end{enumerate}
+    \item Explanation: 
+    \begin{enumerate}[label={\alph*)}]
+        \item I want the object in \texttt{car4} that looks like the filter image has maximums of intensity values, so I subtracted both filter image and \texttt{car4} image by their means.
+        \item I cropped the filter to get rid of the blank area, because I don't want the blank to affect my result of convolution.
+        \item I found the top-left area in \texttt{car4} image has similar brightness with the filter image, which  means the intensity is likely to locate at that area. Thus I add 0.1 to every pixels in the filter image to make it brighter.
+        \item Then I rescaled the filter image to the size of ground truth bounding box, this way the intensity image will be more accurate and make the maximum locate at the position of \texttt{car4}.
+        \item I reversed the filter image from left to right, since the head of the car in the \texttt{car2} image points toward right.
+        \item To do the convolution, we need to make sure the filter image is upside down and reversed from left to right, so I flipped it in x and y dimensions right before convolution.
+    \end{enumerate}
+    \item The result is shown as Fig.~\ref{fig:4_3car4_subfig:a} and Fig.~\ref{fig:4_3car4_subfig:b}.
+\end{itemize}
+
+For \texttt{car5} image:
+\begin{itemize}
+    \item Bounding box overlap percent: 74.40\%.
+    \item Pre-processing steps: 
+    \begin{enumerate}[label={\alph*)}]
+        \item Subtracted both filter image and \texttt{car5} image by their means.
+        \item Crop the filter.
+        \item Add 0.1 on each pixel in the filter image.
+        \item Rescale the filter image to the size of ground truth bounding box.
+        \item Reverse the filter image from left to right.
+        \item Flip the filter image in x and y dimensions before convolution.
+    \end{enumerate}
+    \item Explanation: 
+    \begin{enumerate}[label={\alph*)}]
+        \item I want the object in \texttt{car5} that looks like the filter image has maximums of intensity values, so I subtracted both filter image and \texttt{car5} image by their means.
+        \item I cropped the filter to get rid of the blank area, because I don't want the blank to affect my result of convolution.
+        \item I found that rhino in \texttt{car5} image and the right part of the forest has similar brightness with the filter image, which means the intensity is likely to locate at that area. Thus I add 0.1 to every pixels in the filter image to make it brighter.
+        \item Then I rescaled the filter image to the size of ground truth bounding box, this way the intensity image will be more accurate and make the maximum locate at the position of \texttt{car5}.
+        \item I reversed the filter image from left to right, because I thought the trunk of truck in the \texttt{car5} image somehow seems like the head of the filter image.
+        \item To do the convolution, we need to make sure the filter image is upside down and reversed from left to right, so I flipped it in x and y dimensions right before convolution.
+    \end{enumerate}
+    \item The result is shown as Fig.~\ref{fig:4_3car5_subfig:a} and Fig.~\ref{fig:4_3car5_subfig:b}.
+\end{itemize}
+
+The codes are attached as Listing 1 to Listing 5 in Appendix.\\
+
+\textbf{4.4 Invariance:}
+\begin{enumerate}[label={\alph*)}]
+        \item Not color-invariant, the color/brightness of the filter with respect to the color/brightness of the object being detected mattered. We may need to adjust the brightness of the filter to find the correct object in the image. For example, in the \texttt{car4} and \texttt{car5} images, the darker area like smoke, forest and rhinos will mislead us to detect wrong objects.
+        \item Not shape-invariant, the silhouette of the filter with respect to the silhouette of the object being detected mattered. For example, in the \texttt{car3} image, we can see that the silhouette of a car may not appear at the correct location we expect.
+    \end{enumerate}
+
+\textbf{Result:}\\
+
+\textbf{4.1 Warmup:}
+\begin{figure}[H]
+    \begin{center}
+        \subfigure[]{
+            \label{fig:4_1subfig:a}
+            \includegraphics[height = 1.8in]{4_1Intensity_Image}}
+        \hspace{0.5cm}
+        \subfigure[]{
+            \label{fig:4_1subfig:b}
+            \includegraphics[height = 1.8in]{4_1Bounding_Boxes}}
+        \caption{(a) Intensity image, (b) Bounding boxes.}
+        \label{fig:4_1images}
+    \end{center}
+\end{figure}
+
+\textbf{4.3 More Realistic Images:}
+\begin{figure}[H]
+    \begin{center}
+        \subfigure[]{
+            \label{fig:4_3car1_subfig:a}
+            \includegraphics[height = 1.8in]{4_3car1_heat_map}}
+        \hspace{0.5cm}
+        \subfigure[]{
+            \label{fig:4_3car1_subfig:b}
+            \includegraphics[height = 1.8in]{4_3car1_predicted}}
+        \caption{Outputs for \texttt{car1}. (a) Heat map, (b) Bounding boxes.}
+        \label{fig:4_3car1_images}
+    \end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+        \subfigure[]{
+            \label{fig:4_3car2_subfig:a}
+            \includegraphics[height = 1.8in]{4_3car2_heat_map}}
+        \hspace{0.5cm}
+        \subfigure[]{
+            \label{fig:4_3car2_subfig:b}
+            \includegraphics[height = 1.8in]{4_3car2_predicted}}
+        \caption{Outputs for \texttt{car2}. (a) Heat map, (b) Bounding boxes.}
+        \label{fig:4_3car2_images}
+    \end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+        \subfigure[]{
+            \label{fig:4_3car3_subfig:a}
+            \includegraphics[height = 1.8in]{4_3car3_heat_map}}
+        \hspace{0.5cm}
+        \subfigure[]{
+            \label{fig:4_3car3_subfig:b}
+            \includegraphics[height = 1.8in]{4_3car3_predicted}}
+        \caption{Outputs for \texttt{car3}. (a) Heat map, (b) Bounding boxes.}
+        \label{fig:4_3car3_images}
+    \end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+        \subfigure[]{
+            \label{fig:4_3car4_subfig:a}
+            \includegraphics[height = 1.8in]{4_3car4_heat_map}}
+        \hspace{0.5cm}
+        \subfigure[]{
+            \label{fig:4_3car4_subfig:b}
+            \includegraphics[height = 1.8in]{4_3car4_predicted}}
+        \caption{Outputs for \texttt{car4}. (a) Heat map, (b) Bounding boxes.}
+        \label{fig:4_3car4_images}
+    \end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+        \subfigure[]{
+            \label{fig:4_3car5_subfig:a}
+            \includegraphics[height = 1.8in]{4_3car5_heat_map}}
+        \hspace{0.5cm}
+        \subfigure[]{
+            \label{fig:4_3car5_subfig:b}
+            \includegraphics[height = 1.8in]{4_3car5_predicted}}
+        \caption{Outputs for \texttt{car5}. (a) Heat map, (b) Bounding boxes.}
+        \label{fig:4_3car5_images}
+    \end{center}
+\end{figure}
 
 \newpage
 \pbitem Canny Edge Detection [9pt]
@@ -134,7 +354,7 @@ In this problem, you have to write a function to do CANNY EDGE DETECTION. The fo
         \end{bmatrix}.
     \end{align}
     
-    \item\textbf{Non Maximum suppression [3pt]:}
+    \item\textbf{Non Maximum Suppression [3pt]:}
     Our desired edges need to be sharp, not thick like the ones in gradient image. Use non maximum suppression to preserve all local maximas and discard the rest. You can use the following method to do so:\\
     For each pixel do:\\
     $\bullet$ Round the gradient direction $\theta$ to the nearest multiple of 45$\degree$ in a 8-connected neighbourhood.\\
@@ -146,7 +366,51 @@ In this problem, you have to write a function to do CANNY EDGE DETECTION. The fo
 \end{itemize}
 Compute the images after each step and select suitable thresholds that retains most of the true edges. For this question use the image \texttt{geisel.jpeg} in the data folder.\\
 
+\newpage
 \textbf{Solution:}
+
+For smoothing, I used \texttt{conv2.m} and applied the Gaussian filter with $\sigma$ = 1.4 to smooth the image. The result is shown as Fig.~\ref{fig:5subfig:a}.
+
+For gradient computation, I use $s_x$ and $s_y$ to calculate $G_x$ and $G_y$ respectively. Then I computed the gradient magnitude image using $|G| = \sqrt{G^{2}_x + G^{2}_y}$ and get the edge direction at each pixel by computing $G_{\theta} = \tan^{-1}(\frac{G_x}{G_y}).$ The result is shown as Fig.~\ref{fig:5subfig:b}.
+
+For non maximum suppression, I first rounded every gradient direction at each pixel to the nearest multiple of 45$\degree$. And for each pixel, I checked if the gradient magnitude of two pixels along the $+ve$ and $−ve$ gradient direction in the 8-connected neighbourhood is smaller than that of current pixel. If both magnitudes are smaller, I added the current pixel to the edge candidate. The result is shown as Fig.~\ref{fig:5subfig:c}.
+
+For hysteresis thresholding, I first added all the pixels, which have values higher than $\tau_high$, from edge candidate into an dynamic array. For each pixel in the array, I added it into a result map and added pixels within 8-connected neighbourhood of it into the array if those pixels' gradient magnitude are higher than $\tau_low$ and are not already in the result map. The result is shown as Fig.~\ref{fig:5subfig:d}.
+
+The codes are attached as Listing 6 to Listing 7 in Appendix.\\
+
+\textbf{Result:}
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[height = 1.8in]{5_0Geisel}
+    \caption{Original Image}
+    \label{fig:5geisel}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \subfigure[]{
+            \label{fig:5subfig:a}
+            \includegraphics[height = 1.8in]{5_1Gaussian}}
+        \hspace{0.5in}
+        \subfigure[]{
+            \label{fig:5subfig:b}
+            \includegraphics[height = 1.8in]{5_2Gradient_Magnitude}}
+        \label{fig:images}
+        \vspace{0.5cm}
+        \subfigure[]{
+            \label{fig:5subfig:c}
+            \includegraphics[height = 1.8in]{5_3Non_Maximum_Suppression}}
+        \hspace{0.5in}
+        \subfigure[]{
+            \label{fig:5subfig:d}
+            \includegraphics[height = 1.8in]{5_4Hysteresis_Thresholding}}
+        \caption{(a) Smoothed Image using Gaussian filter with $\sigma = 1.4$, (b) Gradient Magnitude, (c) Non Maximum Suppression edges, (d) Final Edge after Hysteresis Thresholding.}
+        \label{fig:5images}
+    \end{center}
+\end{figure}
 
 \newpage
 \pbitem Sparse Stereo Matching [27pt]
@@ -350,7 +614,19 @@ To detect outliers, we project the 3D points obtained by triangulation back to i
 numbers=left
 }
 
+\lstinputlisting[language=MATLAB, caption=Script of Problem 4]{hw2_4.m}
 
+\lstinputlisting[language=MATLAB, caption=loadAndPreprocess.m used in Script of Problem 4]{loadAndPreprocess.m}
+
+\lstinputlisting[language=MATLAB, caption=detectError.m used in Script of Problem 4]{detectError.m}
+
+\lstinputlisting[language=MATLAB, caption=constructHeatMap.m used in Script of Problem 4]{constructHeatMap.m}
+
+\lstinputlisting[language=MATLAB, caption=constructBoundingBox.m used in Script of Problem 4]{constructBoundingBox.m}
+
+\lstinputlisting[language=MATLAB, caption=Script of Problem 5]{hw2_5.m}
+
+\lstinputlisting[language=MATLAB, caption=round2nearest45.m used in Script of Problem 5]{round2nearest45.m}
 
 \end{problemlist}
 \end{document}

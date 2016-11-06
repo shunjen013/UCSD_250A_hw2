@@ -35,6 +35,7 @@
 \newcommand{\@ExerciseSheet}{{\em NO EXERCISE SHEET TITLE SPECIFIED}}
 \newcommand{\@semester}{{\em No semester specified}}
 \newcommand{\@student}{{\em Student unknown}}
+\newcommand{\@pid}{{\em PID unknown}}
 \newcommand{\@subject}{Computer Vision II}
 \newcommand{\@university}{}
 \newcommand{\@school}{}
@@ -48,6 +49,7 @@
 }
 \newcommand{\semester}[1]{\renewcommand{\@semester}{{#1}}}
 \newcommand{\student}[1]{\renewcommand{\@student}{{#1}}}
+\newcommand{\pid}[1]{\renewcommand{\@pid}{{#1}}}
 \newcommand{\university}[1]{\renewcommand{\@university}{#1}}
 \newcommand{\school}[1]{\renewcommand{\@school}{#1}}
 \newcommand{\department}[1]{}
@@ -120,6 +122,7 @@
 \AtBeginDocument{%
 \begin{flushright}
 \sf{\@student} \\
+\sf{\@pid} \\
 {\protect\emph{\@university}}\\[0.5\baselineskip]
 \bf{\@date}
 \end{flushright}\hfill\\
