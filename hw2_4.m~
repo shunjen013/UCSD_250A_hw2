@@ -58,6 +58,8 @@ car1_box = [car1_rect{1}(1) car1_rect{2}(1) box_len box_width];
 % car1 filter preprocessing
 car1_template = imcrop(car_template_img, [90 280 1630 620]);
 car1_template = imresize(car1_template,[box_width box_len]);
+car1_template = flip(car1_template, 1);
+car1_template = flip(car1_template, 2);
 % car1 overlap finding process
 heat_map1 = constructHeatMap(car1_img, car1_template);
 rect_car1 = constructBoundingBox(car1_ori_img, heat_map1, car1_box);
@@ -74,7 +76,7 @@ car2_box = [car2_rect{1}(1) car2_rect{2}(1) box_len box_width];
 % car2 filter preprocessing
 car2_template = imcrop(car_template_img, [90 280 1630 620]);
 car2_template = imresize(car2_template, [box_width box_len]);
-car2_template = flip(car2_template,2);
+car2_template = flip(car2_template,1);
 % car1 overlap finding process
 heat_map2 = constructHeatMap(car2_img, car2_template);
 rect_car2 = constructBoundingBox(car2_ori_img, heat_map2, car2_box);
@@ -89,8 +91,12 @@ box_len = car3_rect{1}(2)- car3_rect{1}(1);
 box_width = car3_rect{2}(2)- car3_rect{2}(1);
 car3_box = [car3_rect{1}(1) car3_rect{2}(1) box_len box_width];
 % car3 filter preprocess
-car3_template = imcrop(car_template_img, [90 260 1630 640]);
+car3_template = imcrop(car_template_img, [90 220 1630 680]);
 car3_template = imresize(car3_template, [68 95]);
+figure;
+imshow(car3_template);
+car3_template = flip(car3_template,1);
+car3_template = flip(car3_template,2);
 % car3 overlap finding process
 heat_map3 = constructHeatMap(car3_img, car3_template);
 rect_car3 = constructBoundingBox(car3_ori_img, heat_map3, car3_box);
@@ -108,7 +114,7 @@ car4_box = [car4_rect{1}(1) car4_rect{2}(1) box_len box_width];
 car4_template = imcrop(car_template_img, [90 280 1630 620]);
 car4_template = car4_template + 0.1;
 car4_template = imresize(car4_template, [box_width box_len]);
-car4_template = flip(car4_template,2);
+
 % car4 overlap finding process
 heat_map4 = constructHeatMap(car4_img, car4_template);
 rect_car4 = constructBoundingBox(car4_ori_img, heat_map4, car4_box);
@@ -126,7 +132,9 @@ car5_box = [car5_rect{1}(1) car5_rect{2}(1) box_len box_width];
 car5_template = imcrop(car_template_img, [90 280 1630 620]);
 car5_template = imresize(car5_template,[box_width box_len]);
 car5_template = car5_template + 0.1;
-car5_template = flip(car5_template,2);
+figure;
+imshow(car5_template);
+car5_template = flip(car5_template,1);
 % car5 overlap finding process
 heat_map5 = constructHeatMap(car5_img, car5_template);
 rect_car5 = constructBoundingBox(car5_ori_img, heat_map5, car5_box);
