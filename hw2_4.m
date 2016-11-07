@@ -37,13 +37,17 @@ end
 figure;
 imshow(toy_ori_img);
 hold on;
-ground_truth_box_1 = [322,213,105,105];
-ground_truth_box_2 = [325,215,110,110];
-ground_truth_box_3 = [320,220,120,120];
+ground_truth_box_1 = [300,180,len,width];
+ground_truth_box_2 = [310,215,len,width];
+ground_truth_box_3 = [325,200,len,width];
 rect_1 = [x y width len];
 rectangle('Position',rect_1, 'EdgeColor','r');
-rectangle('Position',ground_truth_box_3, 'EdgeColor','r');
-overlap = detectError(rect_1, ground_truth_box_3);
+toy_overlap1 = detectError(rect_1, ground_truth_box_1);
+toy_overlap2 = detectError(rect_1, ground_truth_box_2);
+toy_overlap3 = detectError(rect_1, ground_truth_box_3);
+rectangle('Position',ground_truth_box_1, 'EdgeColor','b');
+rectangle('Position',ground_truth_box_2, 'EdgeColor','g');
+rectangle('Position',ground_truth_box_3, 'EdgeColor','y');
 %% Problem 4.3 More Realistic Images
 car_template_img = loadAndPreprocess('cartemplate.jpg');
 

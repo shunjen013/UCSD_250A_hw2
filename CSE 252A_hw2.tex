@@ -15,13 +15,10 @@
 \pid{A53202335, A53214417, A53209671}
 \university{University of California, San Diego}
 \semester{Fall 2016}
-\date{November 2, 2016}
+\date{November 8, 2016}
 
 \begin{document}
 \begin{problemlist}
-
-
-
 
 \pbitem Epipolar Geometry Theory [6 pt]
 
@@ -34,59 +31,30 @@ Suppose a camera calibration gives a transformation $(R, T)$ such that a point i
 3. Give an expression for the Essential Matrix in terms of $R_1, T_1, R_2, T_2$\\
 
 \textbf{Solution:}
-1. Assume a point in world coordinate ^WP, and the mapping equation form world to the cameras are:
+1. Assume a point in world coordinate $^WP$, and the mapping equation form world to the cameras are:
 \begin{align*}
-    ^{C_1}P = R_1^{W}P + T_1
+    ^{C_1}P = R_1^{W}P + T_1\\
     ^{C_2}P = R_2^{W}P + T_2
 \end{align*}
 And now we map the point from the camera 1 coordinate system to the world one and then the camera 2 one:
 \begin{align*}
-    ^{W}P = R_1^{T}(^{C_1}P - T_1)
+    ^{W}P = R_1^{T}(^{C_1}P - T_1)\\
     ^{C_2}P = R_2^{W}P + T_2 = R_2R_1^{T}(^{C_1}P-T_1) + T_2
 \end{align*}
 2.Let $^{C_1}P = O_1$, we have:
 \begin{align*}
-    ^{C_2}P = -R_2R_1^{T}T_1 + T_2
+    ^{C_2}P = -R_2R_1^{T}T_1 + T_2\\
     l = |-R_2R_1^{T}T_1 + T_2|
 \end{align*}
 3. Assume the origins of two camera $O_1, O_2$ and a point P projected to two image plane $p_1, p_2$, we have:
 \begin{align*}
-    p_2(O_2O_1xp_1) = 0
-    p_2((-R_2R_1^{T}T_1+T_2)x(R_2R_1^{T}p_1))=0
+    p_2(O_2O_1xp_1) = 0\\
+    p_2((-R_2R_1^{T}T_1+T_2)x(R_2R_1^{T}p_1))=0\\
     \varepsilon = [-R_2R_1^{T}T_1+T_2]_xR_2R_1^{T}
 \end{align*}
 
 \newpage
 \pbitem Epipolar Geometry [4 pt]
-1.We can derive two ray parametric equations from the description in the problem:
-\begin{align*}
-    x = -12 + 8t, y = 7t, z = t, t\geq1
-    x = 12 + 2s, y = 7s, z = s, s\geq1
-\end{align*}
-solving the equations above, we have the intersection of two rays:
-\begin{align*}
-    t = s = 4
-    (x,y,z) = (20,28,4)
-\end{align*}
-2.We express the line in the form:
-\begin{align*}
-    X = t , Y = 0 , Z = 2-t
-\end{align*}
-and the projected line on the two planes are:
-\begin{align*}
-    x_1 = \frac{t+12}{2-t}, y_1 = 0
-    x_2 = \frac{t-12}{2-t}, y_2 = 0
-\end{align*}
-u denotes the distance between projected point and (0,0) in image 1, and u+d denoteds the one in image 2. We can derive:
-\begin{align*}
-    \frac{t+12}{2-t} = u
-    \frac{t-12}{2-t} = u+d
-\end{align*}
-We can derive that:
-\begin{align*}
-    t = \frac{2u-12}{1+u}
-    d = \frac{-12}{7}(1+u)
-\end{align*}
 
 \textbf{Description:}
 
@@ -99,6 +67,35 @@ Consider two cameras whose image planes are the $z$ = 1 plane, and whose focal p
 
 \textbf{Solution:}
 
+1.We can derive two ray parametric equations from the description in the problem:
+\begin{align*}
+    x = -12 + 8t, y = 7t, z = t, t\geq1\\
+    x = 12 + 2s, y = 7s, z = s, s\geq1
+\end{align*}
+solving the equations above, we have the intersection of two rays:
+\begin{align*}
+    t = s = 4
+    (x,y,z) = (20,28,4)
+\end{align*}
+2.We express the line in the form:
+\begin{align*}
+    X = t, Y = 0, Z = 2-t
+\end{align*}
+and the projected line on the two planes are:
+\begin{align*}
+    x_1 = \frac{t+12}{2-t}, y_1 = 0\\
+    x_2 = \frac{t-12}{2-t}, y_2 = 0
+\end{align*}
+u denotes the distance between projected point and (0,0) in image 1, and u+d denoteds the one in image 2. We can derive:
+\begin{align*}
+    \frac{t+12}{2-t} = u
+    \frac{t-12}{2-t} = u+d
+\end{align*}
+We can derive that:
+\begin{align*}
+    t = \frac{2u-12}{1+u}
+    d = \frac{-12}{7}(1+u)
+\end{align*}
 
 \newpage
 \pbitem Reconstruction Accuracy [3pt]
@@ -120,7 +117,6 @@ By substituting Z' into the equation, the result becomes:\\
 $\Delta Z' = \frac{-Z'^2}{bf} \Delta(X_L-X_R)$\\
 \end{center}
 Hence, we can observe that $(\Delta Z')$ is in proportional to the square of estimated depth $(Z'^2)$ and inversely proportional to the product of baseline width $(b)$ and focal length $(f)$.
-
 
 
 
@@ -161,10 +157,11 @@ The codes are attached as Listing 1 in Appendix.\\
 
 \textbf{4.2 Detection Error:}\\
 I wrote a function named \texttt{detectError}, which takes ground truth box and predicted bounding box as two arguments. Since I have the length and width and at least 2 coordinates of these rectangles, I can easily compute the number of overlapping pixels of the two bounding boxes between the bounding boxes and then divide it by the total number of unique pixels of the two bounding boxes.
-I then constructed 3 ground truth bounding boxes around one of the Mickey silhouettes and found the overlap is more than 50\%.\\
+I then constructed 3 ground truth bounding boxes having same size as the filter image around one of the Mickey silhouettes and found the overlapping rate are more than 50\%. The result is shown as Fig.~\ref{fig:4_2}.\\
 
 The codes are attached as Listing 3 in Appendix.\\
 
+\newpage
 \textbf{4.3 More Realistic Images:}\\
 For \texttt{car1} image:
 \begin{itemize}
@@ -179,7 +176,7 @@ For \texttt{car1} image:
     \item Explanation: 
     \begin{enumerate}[label={\alph*)}]
         \item I want the object in \texttt{car1} that looks like the filter image has maximums of intensity values, so I subtracted both filter image and \texttt{car1} image by their means.
-        \item I first cropped the filter image to get rid of the blank area, because I don't want the blank to affect my result of convolution.
+        \item I cropped the filter image to get rid of the blank area on the top, because I don't want the blank space become a feature.
         \item Then I rescaled the filter image to the size of ground truth bounding box, this way the intensity image will be more accurate and make the maximum locate at the position of \texttt{car1}.
         \item To do the convolution, we need to make sure the filter image is upside down and reversed from left to right, so I flipped it in x and y dimensions right before convolution.
     \end{enumerate}
@@ -200,7 +197,7 @@ For \texttt{car2} image:
     \item Explanation: 
     \begin{enumerate}[label={\alph*)}]
         \item I want the object in \texttt{car2} that looks like the filter image has maximums of intensity values, so I subtracted both filter image and \texttt{car2} image by their means.
-        \item I cropped the filter to get rid of the blank area, because I don't want the blank to affect my result of convolution.
+        \item I cropped the filter image to get rid of the blank area on the top, because I don't want the blank space become a feature.
         \item Then I rescaled the filter image to the size of ground truth bounding box, this way the intensity image will be more accurate and make the maximum locate at the position of \texttt{car2}.
         \item I reversed the filter image from left to right, since the head of the car in the \texttt{car2} image points toward right.
         \item To do the convolution, we need to make sure the filter image is upside down and reversed from left to right, so I flipped it in x and y dimensions right before convolution.
@@ -221,7 +218,7 @@ For \texttt{car3} image:
     \item Explanation: 
     \begin{enumerate}[label={\alph*)}]
         \item I want the object in \texttt{car3} that looks like the filter image has maximums of intensity values, so I subtracted both filter image and \texttt{car3} image by their means.
-        \item I cropped the filter to get rid of the blank area, because I don't want the blank to affect my result of convolution.
+        \item I cropped the filter image to get rid of the blank area on the top, because I don't want the blank space become a feature.
         \item Then I rescaled the filter image to the size of the rear part of the car in \texttt{car3} image, because I thought somehow that rear part looks more alike with the filter image than the side part. This way the intensity image will be more accurate and make the maximum locate at the position of \texttt{car3}.
         \item To do the convolution, we need to make sure the filter image is upside down and reversed from left to right, so I flipped it in x and y dimensions right before convolution.
     \end{enumerate}
@@ -243,7 +240,7 @@ For \texttt{car4} image:
     \item Explanation: 
     \begin{enumerate}[label={\alph*)}]
         \item I want the object in \texttt{car4} that looks like the filter image has maximums of intensity values, so I subtracted both filter image and \texttt{car4} image by their means.
-        \item I cropped the filter to get rid of the blank area, because I don't want the blank to affect my result of convolution.
+        \item I cropped the filter image to get rid of the blank area on the top, because I don't want the blank space become a feature.
         \item I found the top-left area in \texttt{car4} image has similar brightness with the filter image, which  means the intensity is likely to locate at that area. Thus I add 0.1 to every pixels in the filter image to make it brighter.
         \item Then I rescaled the filter image to the size of ground truth bounding box, this way the intensity image will be more accurate and make the maximum locate at the position of \texttt{car4}.
         \item I reversed the filter image from left to right, since the head of the car in the \texttt{car2} image points toward right.
@@ -267,7 +264,7 @@ For \texttt{car5} image:
     \item Explanation: 
     \begin{enumerate}[label={\alph*)}]
         \item I want the object in \texttt{car5} that looks like the filter image has maximums of intensity values, so I subtracted both filter image and \texttt{car5} image by their means.
-        \item I cropped the filter to get rid of the blank area, because I don't want the blank to affect my result of convolution.
+        \item I cropped the filter image to get rid of the blank area on the top, because I don't want the blank space become a feature.
         \item I found that rhino in \texttt{car5} image and the right part of the forest has similar brightness with the filter image, which means the intensity is likely to locate at that area. Thus I add 0.1 to every pixels in the filter image to make it brighter.
         \item Then I rescaled the filter image to the size of ground truth bounding box, this way the intensity image will be more accurate and make the maximum locate at the position of \texttt{car5}.
         \item I reversed the filter image from left to right, because I thought the trunk of truck in the \texttt{car5} image somehow seems like the head of the filter image.
@@ -284,7 +281,7 @@ The codes are attached as Listing 1 to Listing 5 in Appendix.\\
         \item Not shape-invariant, the silhouette of the filter with respect to the silhouette of the object being detected mattered. For example, in the \texttt{car3} image, we can see that the silhouette of a car may not appear at the correct location we expect.
     \end{enumerate}
 
-\textbf{Result:}\\
+\textbf{Result:}
 
 \textbf{4.1 Warmup:}
 \begin{figure}[H]
@@ -301,6 +298,16 @@ The codes are attached as Listing 1 to Listing 5 in Appendix.\\
     \end{center}
 \end{figure}
 
+\textbf{4.2 Detection Error:}
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[height = 2in]{4_2Detection_Error}
+    \caption{All overlapping rates of these boxes are greater than 50\%}
+    \label{fig:4_2}
+\end{center}
+\end{figure}
+
+\newpage
 \textbf{4.3 More Realistic Images:}
 \begin{figure}[H]
     \begin{center}
@@ -425,7 +432,7 @@ For gradient computation, I use $s_x$ and $s_y$ to calculate $G_x$ and $G_y$ res
 
 For non maximum suppression, I first rounded every gradient direction at each pixel to the nearest multiple of 45$\degree$. And for each pixel, I checked if the gradient magnitude of two pixels along the $+ve$ and $−ve$ gradient direction in the 8-connected neighbourhood is smaller than that of current pixel. If both magnitudes are smaller, I added the current pixel to the edge candidate. The result is shown as Fig.~\ref{fig:5subfig:c}.
 
-For hysteresis thresholding, I first added all the pixels, which have values higher than $\tau_high$, from edge candidate into an dynamic array. For each pixel in the array, I added it into a result map and added pixels within 8-connected neighbourhood of it into the array if those pixels' gradient magnitude are higher than $\tau_low$ and are not already in the result map. The result is shown as Fig.~\ref{fig:5subfig:d}.
+For hysteresis thresholding, I set $\tau_{high} = 0.4$ and $\tau_{low} = 0.1$, I first added all the pixels, which have values higher than $\tau_{high}$, from edge candidate into an dynamic array. For each pixel in the array, I added it into a result map and added pixels within 8-connected neighbourhood of it into the array if those pixels' gradient magnitude are higher than $\tau_{low}$ and are not already in the result map. The result is shown as Fig.~\ref{fig:5subfig:d}.
 
 The codes are attached as Listing 6 to Listing 7 in Appendix.\\
 
