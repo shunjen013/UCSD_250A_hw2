@@ -1,4 +1,5 @@
-function [ inlier, outlier ] = findOutliers(points3D, P2, outlierTH, corsSSD)
+function [ inlier, outlier ] = findOutliers(points3D, P2, outlierTH, ...
+    corsSSD)
 inlier = [];
 outlier = [];
 for i = 1:size(corsSSD, 1)
