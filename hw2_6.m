@@ -61,7 +61,7 @@ showMarker1(matrix02, corners_2);
 %     corners_2, R, SSDth);
 % 
 % figure;
-% showMatching(dino01,dino02,corners_1,corsSSD);
+% showMatching(dino01,dino02,corsSSD);
 
 %% 6.2 6.3 warrior
 clear all;
@@ -79,7 +79,7 @@ corsSSD = naiveCorrespondanceMatching(warrior01, warrior02, corners_1, ...
     corners_2, R, SSDth);
 
 figure;
-showMatching(warrior01,warrior02,corners_1,corsSSD);
+showMatching(warrior01,warrior02,corsSSD);
 
 %% 6.2 6.3 matrix
 clear all;
@@ -97,7 +97,7 @@ corsSSD = naiveCorrespondanceMatching(matrix01, matrix02, corners_1, ...
     corners_2, R, SSDth);
 
 figure;
-showMatching(matrix01,matrix02,corners_1,corsSSD);
+showMatching(matrix01,matrix02,corsSSD);
 
 %% 6.4 dino
 % clear all;
@@ -181,7 +181,7 @@ showMarker1(img_2, cor2);
 %     FMatrix, R, SSDth);
 % 
 % figure;
-% showMatching(dino01,dino02,corners_1,corsSSD);
+% showMatching(dino01,dino02,corsSSD);
 
 %% 6.5 warrior
 clear all;
@@ -199,7 +199,7 @@ corsSSD = correspondanceMatchingLine(warrior01, warrior02, corners_1, ...
     FMatrix, R, SSDth);
 
 figure;
-showMatching(warrior01,warrior02,corners_1,corsSSD);
+showMatching(warrior01,warrior02,corsSSD);
 
 %% 6.5 matrix
 clear all;
@@ -217,7 +217,7 @@ corsSSD = correspondanceMatchingLine(matrix01, matrix02, corners_1, ...
     FMatrix, R, SSDth);
 
 figure;
-showMatching(matrix01,matrix02,corners_1,corsSSD);
+showMatching(matrix01,matrix02,corsSSD);
 
 %% 6.6 dino
 % clear all;
@@ -234,7 +234,7 @@ showMatching(matrix01,matrix02,corners_1,corsSSD);
 % corsSSD = correspondanceMatchingLine(dino01, dino02, corners_1, ...
 %     FMatrix, R, SSDth);
 % 
-% points3D = Triangulate(corners_1, corsSSD, proj_7, proj_8);
+% points3D = Triangulate(corsSSD, proj_7, proj_8);
 % 
 % outlierTH = 20;
 % [inlier, outlier] = findOutliers(points3D, proj_8, outlierTH, corsSSD);
@@ -257,7 +257,7 @@ SSDth = 90;
 corsSSD = correspondanceMatchingLine(warrior01, warrior02, corners_1, ...
     FMatrix, R, SSDth);
 
-points3D = Triangulate(corners_1, corsSSD, proj_warrior01, proj_warrior02);
+points3D = Triangulate(corsSSD, proj_warrior01, proj_warrior02);
 
 outlierTH = 20;
 [inlier, outlier] = findOutliers(points3D, proj_warrior02, ...
@@ -281,7 +281,7 @@ SSDth = 2000;
 corsSSD = correspondanceMatchingLine(matrix01, matrix02, corners_1, ...
     FMatrix, R, SSDth);
 
-points3D = Triangulate(corners_1, corsSSD, proj_matrix01, proj_matrix02);
+points3D = Triangulate(corsSSD, proj_matrix01, proj_matrix02);
 
 outlierTH = 20;
 [inlier, outlier] = findOutliers(points3D, proj_matrix02, ...

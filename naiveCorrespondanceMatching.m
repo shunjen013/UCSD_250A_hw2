@@ -17,9 +17,7 @@ for i = 1:size(corners1, 1)
         end
     end
     if minSSD < SSDth
-        corsSSD = [corsSSD; corners2(bestMatch, :)];
-    else
-        corsSSD = [corsSSD; 0, 0];
+        corsSSD = [corsSSD; corners1(i, :), corners2(bestMatch, :)];
     end
 end
 end

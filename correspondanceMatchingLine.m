@@ -27,9 +27,7 @@ for i = 1:size(epiLine_dino02, 1)
         end
     end
     if minSSD < SSDth
-        corsSSD = [corsSSD; points(bestMatch, :)];
-    else
-        corsSSD = [corsSSD; 0, 0];
+        corsSSD = [corsSSD; corners1(i, :), points(bestMatch, :)];
     end
 end
 corsSSD = double(corsSSD);
