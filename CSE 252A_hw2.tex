@@ -176,7 +176,7 @@ For \texttt{car1} image:
     \item Explanation: 
     \begin{enumerate}[label={\alph*)}]
         \item I want the object in \texttt{car1} that looks like the filter image has maximums of intensity values, so I subtracted both filter image and \texttt{car1} image by their means.
-        \item I first cropped the filter image to get rid of the blank area, because I don't want the blank to affect my result of convolution.
+        \item I cropped the filter image to get rid of the blank area on the top, because I don't want the blank space become a feature.
         \item Then I rescaled the filter image to the size of ground truth bounding box, this way the intensity image will be more accurate and make the maximum locate at the position of \texttt{car1}.
         \item To do the convolution, we need to make sure the filter image is upside down and reversed from left to right, so I flipped it in x and y dimensions right before convolution.
     \end{enumerate}
@@ -197,7 +197,7 @@ For \texttt{car2} image:
     \item Explanation: 
     \begin{enumerate}[label={\alph*)}]
         \item I want the object in \texttt{car2} that looks like the filter image has maximums of intensity values, so I subtracted both filter image and \texttt{car2} image by their means.
-        \item I cropped the filter to get rid of the blank area, because I don't want the blank to affect my result of convolution.
+        \item I cropped the filter image to get rid of the blank area on the top, because I don't want the blank space become a feature.
         \item Then I rescaled the filter image to the size of ground truth bounding box, this way the intensity image will be more accurate and make the maximum locate at the position of \texttt{car2}.
         \item I reversed the filter image from left to right, since the head of the car in the \texttt{car2} image points toward right.
         \item To do the convolution, we need to make sure the filter image is upside down and reversed from left to right, so I flipped it in x and y dimensions right before convolution.
@@ -218,7 +218,7 @@ For \texttt{car3} image:
     \item Explanation: 
     \begin{enumerate}[label={\alph*)}]
         \item I want the object in \texttt{car3} that looks like the filter image has maximums of intensity values, so I subtracted both filter image and \texttt{car3} image by their means.
-        \item I cropped the filter to get rid of the blank area, because I don't want the blank to affect my result of convolution.
+        \item I cropped the filter image to get rid of the blank area on the top, because I don't want the blank space become a feature.
         \item Then I rescaled the filter image to the size of the rear part of the car in \texttt{car3} image, because I thought somehow that rear part looks more alike with the filter image than the side part. This way the intensity image will be more accurate and make the maximum locate at the position of \texttt{car3}.
         \item To do the convolution, we need to make sure the filter image is upside down and reversed from left to right, so I flipped it in x and y dimensions right before convolution.
     \end{enumerate}
@@ -240,7 +240,7 @@ For \texttt{car4} image:
     \item Explanation: 
     \begin{enumerate}[label={\alph*)}]
         \item I want the object in \texttt{car4} that looks like the filter image has maximums of intensity values, so I subtracted both filter image and \texttt{car4} image by their means.
-        \item I cropped the filter to get rid of the blank area, because I don't want the blank to affect my result of convolution.
+        \item I cropped the filter image to get rid of the blank area on the top, because I don't want the blank space become a feature.
         \item I found the top-left area in \texttt{car4} image has similar brightness with the filter image, which  means the intensity is likely to locate at that area. Thus I add 0.1 to every pixels in the filter image to make it brighter.
         \item Then I rescaled the filter image to the size of ground truth bounding box, this way the intensity image will be more accurate and make the maximum locate at the position of \texttt{car4}.
         \item I reversed the filter image from left to right, since the head of the car in the \texttt{car2} image points toward right.
@@ -264,7 +264,7 @@ For \texttt{car5} image:
     \item Explanation: 
     \begin{enumerate}[label={\alph*)}]
         \item I want the object in \texttt{car5} that looks like the filter image has maximums of intensity values, so I subtracted both filter image and \texttt{car5} image by their means.
-        \item I cropped the filter to get rid of the blank area, because I don't want the blank to affect my result of convolution.
+        \item I cropped the filter image to get rid of the blank area on the top, because I don't want the blank space become a feature.
         \item I found that rhino in \texttt{car5} image and the right part of the forest has similar brightness with the filter image, which means the intensity is likely to locate at that area. Thus I add 0.1 to every pixels in the filter image to make it brighter.
         \item Then I rescaled the filter image to the size of ground truth bounding box, this way the intensity image will be more accurate and make the maximum locate at the position of \texttt{car5}.
         \item I reversed the filter image from left to right, because I thought the trunk of truck in the \texttt{car5} image somehow seems like the head of the filter image.
