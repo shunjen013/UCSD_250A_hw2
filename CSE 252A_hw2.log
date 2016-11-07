@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.10.4)  4 NOV 2016 06:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.10.4)  7 NOV 2016 08:49
 entering extended mode
 **"./CSE 252A_hw2.tex"
 ("CSE 252A_hw2.tex"
@@ -288,41 +288,49 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\was\gensymb.sty"
 Package: gensymb 2003/07/02 v1.0 (WaS)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\labelindent=\skip53
+\enit@outerparindent=\dimen124
+\enit@toks=\toks23
+\enit@inbox=\box32
+\enitdp@description=\count124
 ) ("CSE 252A_hw2.aux")
 \openout1 = `"CSE 252A_hw2.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 18.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 20.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count124
-\scratchdimen=\dimen124
-\scratchbox=\box32
-\nofMPsegments=\count125
-\nofMParguments=\count126
-\everyMPshowfont=\toks23
-\MPscratchCnt=\count127
-\MPscratchDim=\dimen125
-\MPnumerator=\count128
-\makeMPintoPDFobject=\count129
-\everyMPtoPDFconversion=\toks24
+\scratchcounter=\count125
+\scratchdimen=\dimen125
+\scratchbox=\box33
+\nofMPsegments=\count126
+\nofMParguments=\count127
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count128
+\MPscratchDim=\dimen126
+\MPnumerator=\count129
+\makeMPintoPDFobject=\count130
+\everyMPtoPDFconversion=\toks25
 ) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -334,8 +342,8 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-\AtBeginShipoutBox=\box33
-Package hyperref Info: Link coloring OFF on input line 18.
+\AtBeginShipoutBox=\box34
+Package hyperref Info: Link coloring OFF on input line 20.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -343,378 +351,31 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count130
+\c@section@level=\count131
 )
-LaTeX Info: Redefining \ref on input line 18.
-LaTeX Info: Redefining \pageref on input line 18.
-LaTeX Info: Redefining \nameref on input line 18.
+LaTeX Info: Redefining \ref on input line 20.
+LaTeX Info: Redefining \pageref on input line 20.
+LaTeX Info: Redefining \nameref on input line 20.
  ("CSE 252A_hw2.out") ("CSE 252A_hw2.out")
 \@outlinefile=\write3
 \openout3 = `"CSE 252A_hw2.out"'.
 
-\c@lstlisting=\count131
-LaTeX Info: Redefining \celsius on input line 18.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 18.
-
-Package gensymb Warning: Not defining \perthousand.
-
-LaTeX Info: Redefining \ohm on input line 18.
-Package gensymb Info: Using \Omega for \ohm on input line 18.
-
-Package gensymb Warning: Not defining \micro.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 28--29
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 30--33
-
- []
-
-[1
-
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ™ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--47
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 56--59
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
-
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 80--81
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 82--84
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--87
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--90
-
- []
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 91.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 91.
-
-Underfull \hbox (badness 10000) in paragraph at lines 91--92
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 92--93
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 93--94
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
-
- []
-
-[5]
-Missing character: There is no Ï in font cmr10!
-Missing character: There is no ƒ in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
-
- []
-
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 137--143
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 147--148
-
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--161
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 164--171
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 182--186
-
- []
-
-[7] <6_1warrior1.png, id=52, 742.27313pt x 687.31781pt>
-File: 6_1warrior1.png Graphic file (type png)
- <use 6_1warrior1.png>
-Package pdftex.def Info: 6_1warrior1.png used on input line 192.
-(pdftex.def)             Requested size: 218.52696pt x 202.35622pt.
-
-<6_1warrior2.png, id=53, 742.27313pt x 687.31781pt>
-File: 6_1warrior2.png Graphic file (type png)
- <use 6_1warrior2.png>
-Package pdftex.def Info: 6_1warrior2.png used on input line 194.
-(pdftex.def)             Requested size: 218.52696pt x 202.35622pt.
-
-<6_1matrix1.png, id=54, 742.27313pt x 687.31781pt>
-File: 6_1matrix1.png Graphic file (type png)
- <use 6_1matrix1.png>
-Package pdftex.def Info: 6_1matrix1.png used on input line 201.
-(pdftex.def)             Requested size: 218.52696pt x 202.35622pt.
-
-<6_1matrix2.png, id=55, 742.27313pt x 687.31781pt>
-File: 6_1matrix2.png Graphic file (type png)
- <use 6_1matrix2.png>
-Package pdftex.def Info: 6_1matrix2.png used on input line 203.
-(pdftex.def)             Requested size: 218.52696pt x 202.35622pt.
- [8pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
-
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.207 \newpage
-              pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplic
-ate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.207 \newpage
-               <./6_1warrior1.png (PNG copy)> <./6_1warrior2.png (PNG copy)> <./6_1matrix1.png (PNG copy)> <./6_1matrix2
-.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 208--212
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 213--215
-
- []
-
-
-Overfull \hbox (41.24998pt too wide) in paragraph at lines 219--220
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 221--223
-
- []
-
-[9] <6_3warrior.png, id=75, 428.35031pt x 215.30438pt>
-File: 6_3warrior.png Graphic file (type png)
- <use 6_3warrior.png>
-Package pdftex.def Info: 6_3warrior.png used on input line 227.
-(pdftex.def)             Requested size: 428.34926pt x 215.30385pt.
-
-<6_3matrix.png, id=76, 427.5975pt x 214.55156pt>
-File: 6_3matrix.png Graphic file (type png)
- <use 6_3matrix.png>
-Package pdftex.def Info: 6_3matrix.png used on input line 233.
-(pdftex.def)             Requested size: 427.59645pt x 214.55103pt.
- [10pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignore
-d
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.237 \newpage
-              pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplic
-ate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.237 \newpage
-               <./6_3warrior.png (PNG copy)> <./6_3matrix.png (PNG copy)>]
-<6_4warrior1.png, id=83, 742.27313pt x 687.31781pt>
-File: 6_4warrior1.png Graphic file (type png)
- <use 6_4warrior1.png>
-Package pdftex.def Info: 6_4warrior1.png used on input line 248.
-(pdftex.def)             Requested size: 179.50833pt x 166.2212pt.
-
-<6_4warrior2.png, id=84, 742.27313pt x 687.31781pt>
-File: 6_4warrior2.png Graphic file (type png)
- <use 6_4warrior2.png>
-Package pdftex.def Info: 6_4warrior2.png used on input line 250.
-(pdftex.def)             Requested size: 179.50833pt x 166.2212pt.
-
-<6_4matrix1.png, id=85, 742.27313pt x 687.31781pt>
-File: 6_4matrix1.png Graphic file (type png)
- <use 6_4matrix1.png>
-Package pdftex.def Info: 6_4matrix1.png used on input line 257.
-(pdftex.def)             Requested size: 179.50833pt x 166.2212pt.
-
-<6_4matrix2.png, id=86, 742.27313pt x 687.31781pt>
-File: 6_4matrix2.png Graphic file (type png)
- <use 6_4matrix2.png>
-Package pdftex.def Info: 6_4matrix2.png used on input line 259.
-(pdftex.def)             Requested size: 179.50833pt x 166.2212pt.
- [11pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignore
-d
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.264 \newpage
-              pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplic
-ate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.264 \newpage
-               <./6_4warrior1.png (PNG copy)> <./6_4warrior2.png (PNG copy)> <./6_4matrix1.png (PNG copy)> <./6_4matrix2
-.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 265--267
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 273--276
-
- []
-
-[12] <6_5warrior.png, id=106, 426.09187pt x 213.79875pt>
-File: 6_5warrior.png Graphic file (type png)
- <use 6_5warrior.png>
-Package pdftex.def Info: 6_5warrior.png used on input line 280.
-(pdftex.def)             Requested size: 426.09082pt x 213.79822pt.
-
-<6_5matrix.png, id=107, 426.84468pt x 214.55156pt>
-File: 6_5matrix.png Graphic file (type png)
- <use 6_5matrix.png>
-Package pdftex.def Info: 6_5matrix.png used on input line 286.
-(pdftex.def)             Requested size: 426.84364pt x 214.55103pt.
- [13pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignore
-d
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.290 \newpage
-              pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplic
-ate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.290 \newpage
-               <./6_5warrior.png (PNG copy)> <./6_5matrix.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 291--293
-
- []
-
-[14] <6_6warrior.png, id=127, 742.27313pt x 687.31781pt>
-File: 6_6warrior.png Graphic file (type png)
- <use 6_6warrior.png>
-Package pdftex.def Info: 6_6warrior.png used on input line 333.
-(pdftex.def)             Requested size: 445.36732pt x 412.39386pt.
- [15pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignore
-d
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.337 \newpage
-               <./6_6warrior.png (PNG copy)>] <6_6matrix.png, id=133, 742.27313pt x 687.31781pt>
-File: 6_6matrix.png Graphic file (type png)
- <use 6_6matrix.png>
-Package pdftex.def Info: 6_6matrix.png used on input line 340.
-(pdftex.def)             Requested size: 445.36732pt x 412.39386pt.
-
-[16pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) has been already used, duplicate ignore
-d
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.346 \newpage
-               <./6_6matrix.png (PNG copy)>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 356.
- [17]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 356.
- ("CSE 252A_hw2.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 356.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 356.
-Package rerunfilecheck Info: File `"CSE 252A_hw2".out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 356.
- ) 
+! I can't write on file `"CSE 252A_hw2.pdf"'.
+Please type another file name for output
+! Emergency stop.
+<to be read again> 
+                   \edef 
+l.20 \begin{document}
+                     
+*** (job aborted, file error in nonstop mode)
+
+ 
 Here is how much of TeX's memory you used:
- 7297 strings out of 493334
- 106018 string characters out of 3136666
- 203031 words of memory out of 3000000
- 10692 multiletter control sequences out of 15000+200000
- 7154 words of font info for 26 fonts, out of 3000000 for 9000
+ 7385 strings out of 493334
+ 108016 string characters out of 3136666
+ 198446 words of memory out of 3000000
+ 10864 multiletter control sequences out of 15000+200000
+ 4609 words of font info for 17 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,14n,32p,1031b,954s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pro
-gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmmi5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files 
-(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pf
-b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Pro
-gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on "CSE 252A_hw2.pdf" (17 pages, 5899902 bytes).
-PDF statistics:
- 212 PDF objects out of 1000 (max. 8388607)
- 58 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 29i,1n,32p,249b,220s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!
