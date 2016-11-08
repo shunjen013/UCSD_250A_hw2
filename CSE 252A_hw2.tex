@@ -38,8 +38,8 @@ Suppose a camera calibration gives a transformation $(R, T)$ such that a point i
 \end{align*}
 And now we map the point from the camera 1 coordinate system to the world one and then the camera 2 one:
 \begin{align*}
-    ^{W}P = R_1^{T}(^{C_1}P - T_1)\\
-    ^{C_2}P = R_2^{W}P + T_2 = R_2R_1^{T}(^{C_1}P-T_1) + T_2
+    &^{W}P = R_1^{T}(^{C_1}P - T_1)\\
+    &^{C_2}P = R_2^{W}P + T_2 = R_2R_1^{T}(^{C_1}P-T_1) + T_2
 \end{align*}
 2.Let $^{C_1}P = O_1$, we have:
 \begin{align*}
@@ -48,9 +48,9 @@ And now we map the point from the camera 1 coordinate system to the world one an
 \end{align*}
 3. Assume the origins of two camera $O_1, O_2$ and a point P projected to two image plane $p_1, p_2$, we have:
 \begin{align*}
-    p_2(O_2O_1xp_1) = 0\\
-    p_2((-R_2R_1^{T}T_1+T_2)x(R_2R_1^{T}p_1))=0\\
-    \varepsilon = [-R_2R_1^{T}T_1+T_2]_xR_2R_1^{T}
+    &p_2(O_2O_1xp_1) = 0\\
+    &p_2((-R_2R_1^{T}T_1+T_2)x(R_2R_1^{T}p_1))=0\\
+    &\varepsilon = [-R_2R_1^{T}T_1+T_2]_{\times}R_2R_1^{T}
 \end{align*}
 
 \newpage
@@ -77,24 +77,12 @@ solving the equations above, we have the intersection of two rays:
     t = s = 4
     (x,y,z) = (20,28,4)
 \end{align*}
-2.We express the line in the form:
+2.Since we know the X and Z of the real point P as $X+Z=2$ and $x_1 = u-d$, we can write down:
 \begin{align*}
-    X = t, Y = 0, Z = 2-t
-\end{align*}
-and the projected line on the two planes are:
-\begin{align*}
-    x_1 = \frac{t+12}{2-t}, y_1 = 0\\
-    x_2 = \frac{t-12}{2-t}, y_2 = 0
-\end{align*}
-u denotes the distance between projected point and (0,0) in image 1, and u+d denoteds the one in image 2. We can derive:
-\begin{align*}
-    \frac{t+12}{2-t} = u
-    \frac{t-12}{2-t} = u+d
-\end{align*}
-We can derive that:
-\begin{align*}
-    t = \frac{2u-12}{1+u}
-    d = \frac{-12}{7}(1+u)
+    X &= \frac{24(u-d)}{-d}\\
+    Z &= \frac{24}{-d}\\
+    X+Z &= \frac{24u-24d+24}{-d} = 2\\
+    d &= \frac{12}{11}u+\frac{12}{11}
 \end{align*}
 
 \newpage
